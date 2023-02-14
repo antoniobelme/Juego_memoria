@@ -11,11 +11,14 @@ const childNueve = document.querySelector('.childNueve');
 const childDiez = document.querySelector('.childDiez');
 const childOnce = document.querySelector('.childOnce');
 const childDoce = document.querySelector('.childDoce');
-const text_containerRight = document.querySelector('.text_containerRight');
+const modalText = document.querySelector('.modalText');
 const buttomValidate = document.querySelector('.buttomValidate');
+const modalContainer = document.querySelector('.modalContainer');
+const buttomClose = document.querySelector('.buttomClose');
 
 buttom.addEventListener("click", buttomPlay);
 buttomValidate.addEventListener("click", buttomToValidate);
+buttomClose.addEventListener("click", buttomClosePopUp);
 
 //
 const arrChild = [
@@ -58,14 +61,20 @@ function buttomPlay(){
     timeDoClickChild();
   }, 6.5 * 1000);
 }
+
 function buttomToValidate(){
   validateSelection();
   setTimeout(function() {
       cleanChild();
   }, 2 * 1000);
 }
+
 function randomNumber() {
   return Math.floor(Math.random() * 12) + 1;
+}
+
+function buttomClosePopUp(){
+  modalContainer.classList.add("inactive");
 }
 
 function pushChild() {
@@ -191,11 +200,13 @@ function validateSelection() {
     }
   }
   if(userSelectionChild.length==0){
-    text_containerRight.innerText = "Felicitaciones";
+    modalContainer.classList.remove("inactive");
+    modalText.innerText = "Felicitaciones";
     deleteChildArray();
     userlevel.push(1);
   } if(userSelectionChild.length!=0){
-    text_containerRight.innerText = "Hazlo mejor!";
+    modalContainer.classList.remove("inactive");
+    modalText.innerText = "!Hazlo mejor!";
     deleteChildArray();
   }
 }
@@ -214,7 +225,6 @@ function cleanChild() {
       arrChildVars[i].classList.add("child");
     }
   }
-  text_containerRight.innerText = " ";
   deleteChildArray();
 }
 

@@ -31,9 +31,7 @@ body{
   position: relative;
   float: none;
 }
-.inactive {
-  display: none;
-}
+
 .childModify {
   width: 100px;
   height: 100px;
@@ -85,6 +83,7 @@ main {
   width: 100px;
   height: 100px;
   background-color: var(--dark-red);
+  border-radius: 10px;
 }
 .containerRight {
   width: 50%;
@@ -198,8 +197,7 @@ main {
   overflow: hidden;
   top:110px;
   left:25px;
-  -moz-border-radius: 0px 100px 100px 0;
-  -webkit-border-radius: 0px 0px 100px 100px;
+  border-radius: 0px 0px 100px 100px;
 }
 .teeth{
   width: 40px;
@@ -220,33 +218,20 @@ main {
 .buttom {
   width: 100px;
   height: 50px;
-  background-color: var(--pink-soul);
   cursor: pointer;
   color: white;
   text-align: center;
   line-height: 50px;
   border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.buttomPlay{
+  background-color: var(--pink-soul);
 }
 .buttomValidate{
-  width: 100px;
-  height: 50px;
   background-color: var(--gray-blue);
-  cursor: pointer;
-  color: white;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 20px;
 }
-.text_containerRight{
-  width: 100px;
-  height: 50px;
-  background-color: var(--pink-soul);
-  cursor: pointer;
-  color: white;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 20px;
-}
+/* pop up */
 .modalContainer{
   width: 100vw;
   height: 100vh;
@@ -257,8 +242,7 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events:none;
-  opacity: 0; 
+  pointer-events:fill;
   transition: opacity 0.3s ease;
 }
 .modal{
@@ -272,9 +256,14 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.buttomClose {
+  background-color: var(--pink-soul);
 }
 .modalText{
   font-size: 60px;
+  color:var(--dark-red)
 }
 footer{
   width: 100%;
@@ -290,6 +279,9 @@ footer{
   flex-direction: row;
   background-color: var(--gray-blue);
   z-index: 3;
+}
+.inactive {
+  display: none;
 }
 @media (max-height: 600px) {
   .containerLeft{
