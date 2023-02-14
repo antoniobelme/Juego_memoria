@@ -31,39 +31,13 @@ body{
   position: relative;
   float: none;
 }
-.inactive{
+.inactive {
   display: none;
 }
 .childModify {
   width: 100px;
   height: 100px;
   background-color: var(--arena);
-}
-.modalContainer{
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.3);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modal{
-  max-width: 100%;
-  width: 600px;
-  height: 300px;
-  background-color: var(--arena);
-  border-radius: 20px;
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-.modalText{
-  font-size: 60px;
 }
 .navContainer{
   width: 100%;
@@ -80,6 +54,7 @@ main {
   z-index: 1;
   width: 100%;
   height: 80%;
+  position: relative;
 }
 .container {
   width: 100%;
@@ -240,7 +215,7 @@ main {
   background: var(--red);
   border-top-right-radius:5px;
 }
-
+/* dummy end*/
 
 .buttom {
   width: 100px;
@@ -272,7 +247,35 @@ main {
   line-height: 50px;
   border-radius: 20px;
 }
-
+.modalContainer{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events:none;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+.modal{
+  max-width: 100%;
+  width: 600px;
+  height: 300px;
+  background-color: var(--arena);
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.modalText{
+  font-size: 60px;
+}
 footer{
   width: 100%;
   height: 100px;
