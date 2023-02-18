@@ -17,6 +17,7 @@ const modalContainer = document.querySelector('.modalContainer');
 const modal = document.querySelector('.modal');
 const buttomClose = document.querySelector('.buttomClose');
 const spaceImage = document.querySelector('.spaceImage');
+const head = document.querySelector('.headTwo');
 
 buttomPlay.addEventListener("click", buttomToPlay);
 buttomValidate.addEventListener("click", buttomToValidate);
@@ -88,6 +89,7 @@ function buttomClosePopUp(){
     modal.classList.remove("animate__animated"); 
   modal.classList.remove("animate__backOutRight");
   }, 1000);
+  createDummy();
 }
 
 function pushChild() {
@@ -206,24 +208,31 @@ function userSelection(varChild) {
 }
 
 function validateSelection() {
-  for(let i = 0; i <= notRepeatChild.length; i++){
-    if(notRepeatChildClass[i]==userSelectionChild[i]){
-      notRepeatChildClass.shift(i);
-      userSelectionChild.shift(i);
+  if(notRepeatChild.length != 0){
+    for(let i = 0; i <= notRepeatChild.length; i++){
+      if(notRepeatChildClass[i]==userSelectionChild[i]){
+        notRepeatChildClass.shift(i);
+        userSelectionChild.shift(i);
+      }
     }
-  }
-  if(userSelectionChild.length==0){
+    if(userSelectionChild.length==0){
+      modalContainer.classList.remove("inactive");
+      addAnimateModalContainer()
+      modalText.innerText = "Felicitaciones";
+      deleteChildArray();
+      userlevel.push(1);
+    } if(userSelectionChild.length!=0){
+      modalContainer.classList.remove("inactive");
+      addAnimateModalContainer()
+      modalText.innerText = "!Hazlo mejor!";
+      deleteChildArray();
+    } 
+  } else {
     modalContainer.classList.remove("inactive");
     addAnimateModalContainer()
-    modalText.innerText = "Felicitaciones";
-    deleteChildArray();
-    userlevel.push(1);
-  } if(userSelectionChild.length!=0){
-    modalContainer.classList.remove("inactive");
-    addAnimateModalContainer()
-    modalText.innerText = "!Hazlo mejor!";
-    deleteChildArray();
+    modalText.innerText = "Juega para validar";
   }
+  
 }
 function addAnimateModalContainer() {
   modal.classList.add("animate__animated"); 
@@ -265,56 +274,69 @@ function cleanChild() {
 
 function createDummy() {
   if(userlevel[0]===1){
-    const head = document.createElement("div");
     head.classList.add("head");
-    spaceImage.appendChild(head);
   }
   if(userlevel[1]===1){
-    const earsEarsRight = document.createElement("div");
-    earsEarsRight.classList.add("ears");
-    earsEarsRight.classList.add("earsRight");
-    spaceImage.appendChild(earsEarsRight);
+    const earsRight = document.createElement("div");
+    earsRight.classList.add("ears");
+    earsRight.classList.add("earsRight");
+
+    const earsLeft = document.createElement("div");
+    earsLeft.classList.add("ears");
+    earsLeft.classList.add("earsLeft");
+
+    const neck = document.createElement("div");
+    neck.classList.add("neck");
+
+    head.appendChild(earsRight);
+    head.appendChild(earsLeft);
+    head.appendChild(neck);
   }
   if(userlevel[2]===1){
-    const earsEarsRight = document.createElement("div");
-    earsEarsRight.classList.add("ears");
-    earsEarsRight.classList.add("earsRight");
+    const eyeLeft = document.createElement("div");
+    eyeLeft.classList.add("eye");
+    eyeLeft.classList.add("eye-left");
+
+    const eyeRight = document.createElement("div");
+    eyeRight.classList.add("eye");
+    eyeRight.classList.add("eye-right");
+
+    const eyePupil = document.createElement("div");
+    eyePupil.classList.add("eyePupil");
+    const eyePupilTwo = document.createElement("div");
+    eyePupilTwo.classList.add("eyePupil");
+
+    eyeLeft.appendChild(eyePupil);
+    eyeRight.appendChild(eyePupilTwo);
+
+    const front = document.createElement("div");
+    front.classList.add("front");
+
+    head.appendChild(eyeLeft);
+    head.appendChild(eyeRight);
+    head.appendChild(front);
+  }
+  if(userlevel[3]===1){
+    const bottom = document.createElement("div");
+    bottom.classList.add("bottom");
+
+    const nose = document.createElement("div");
+    nose.classList.add("nose");
+
+    const mouth = document.createElement("div");
+    mouth.classList.add("mouth");
+
+    const teeth = document.createElement("div");
+    teeth.classList.add("teeth");
+
+    const tongue = document.createElement("div");
+    tongue.classList.add("tongue");
+
+    mouth.appendChild(teeth);
+    mouth.appendChild(tongue);
+
+    head.appendChild(bottom);
+    head.appendChild(nose);
+    head.appendChild(mouth);
   }
 }
-const productCard = document.createElement("div");
-        productCard.classList.add("product-card");
-    
-        //product = {name, proce, image} -> product.image
-        var imageCard = document.createElement("img");
-        imageCard.setAttribute("src", product.image);
-        /* imageCard.classList.add("product-card-img");
-        imageCard.classList.add(product.name); */
-        imageCard.addEventListener("click", openProductDetailAside);
-        imageCard.addEventListener("click", insertProductDetailList(imageCard.getAttribute("src")));
-
-        const productInfo = document.createElement("div");
-        productInfo.classList.add("product-info");
-    
-        const productInfoDiv = document.createElement("div");
-    
-        const productPrice = document.createElement("p");
-        productPrice.innerText = "$" + product.price;
-        const productName = document.createElement("p");
-        productName.innerText = product.name;
-    
-        productInfoDiv.appendChild(productPrice);
-        productInfoDiv.appendChild(productName);
-    
-        const productInfoFigure = document.createElement("figure");
-        const productImgCart = document.createElement("img");
-        productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
-    
-        productInfoFigure.appendChild(productImgCart);
-    
-        productInfo.appendChild(productInfoDiv);
-        productInfo.appendChild(productInfoFigure);
-    
-        productCard.appendChild(imageCard);
-        productCard.appendChild(productInfo);
-    
-        cardsContainer.appendChild(productCard);
