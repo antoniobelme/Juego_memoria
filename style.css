@@ -87,7 +87,7 @@ main {
 }
 .containerRight {
   width: 50%;
-  height: 70%;
+  height: 90%;
   display: grid;
   grid-template-rows: 3fr 1fr 1fr;
   justify-items: center;
@@ -98,7 +98,7 @@ main {
   height: 300px;
   display:flex;
   justify-content:center;
-  align-items:flex-start;
+  align-items:center;
   position:relative;
 }
 /* Dummy */

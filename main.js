@@ -1,4 +1,4 @@
-const buttom = document.querySelector('.buttom');
+const buttomPlay = document.querySelector('.buttomPlay');
 const childUno = document.querySelector('.childUno');
 const childDos = document.querySelector('.childDos');
 const childTres = document.querySelector('.childTres');
@@ -14,9 +14,11 @@ const childDoce = document.querySelector('.childDoce');
 const modalText = document.querySelector('.modalText');
 const buttomValidate = document.querySelector('.buttomValidate');
 const modalContainer = document.querySelector('.modalContainer');
+const modal = document.querySelector('.modal');
 const buttomClose = document.querySelector('.buttomClose');
+const spaceImage = document.querySelector('.spaceImage');
 
-buttom.addEventListener("click", buttomPlay);
+buttomPlay.addEventListener("click", buttomToPlay);
 buttomValidate.addEventListener("click", buttomToValidate);
 buttomClose.addEventListener("click", buttomClosePopUp);
 
@@ -54,10 +56,14 @@ const notRepeatChildClass = [];
 const userSelectionChild = [];
 const userlevel = [];
 
-function buttomPlay(){
+function buttomToPlay(){
+  buttomPlay.classList.add("animate__animated");
+  buttomPlay.classList.add("animate__shakeY");
   modifyChild();
   returnChild();
   setTimeout(function() {
+    buttomPlay.classList.remove("animate__animated");
+    buttomPlay.classList.remove("animate__shakeY");
     timeDoClickChild();
   }, 6.5 * 1000);
 }
@@ -74,7 +80,14 @@ function randomNumber() {
 }
 
 function buttomClosePopUp(){
-  modalContainer.classList.add("inactive");
+  removeAnimateModalContainer()
+  modal.classList.add("animate__animated"); 
+  modal.classList.add("animate__backOutRight");
+  setTimeout(function() {
+    modalContainer.classList.add("inactive");
+    modal.classList.remove("animate__animated"); 
+  modal.classList.remove("animate__backOutRight");
+  }, 1000);
 }
 
 function pushChild() {
@@ -201,14 +214,36 @@ function validateSelection() {
   }
   if(userSelectionChild.length==0){
     modalContainer.classList.remove("inactive");
+    addAnimateModalContainer()
     modalText.innerText = "Felicitaciones";
     deleteChildArray();
     userlevel.push(1);
   } if(userSelectionChild.length!=0){
     modalContainer.classList.remove("inactive");
+    addAnimateModalContainer()
     modalText.innerText = "!Hazlo mejor!";
     deleteChildArray();
   }
+}
+function addAnimateModalContainer() {
+  modal.classList.add("animate__animated"); 
+  modalText.classList.add("animate__animated"); 
+  modal.classList.add("animate__bounceInLeft"); 
+  setTimeout(function() {
+    modalText.classList.add("animate__rubberBand");
+  }, 1150);
+  setTimeout(function() {
+    buttomClose.classList.add("animate__animated"); 
+    buttomClose.classList.add("animate__swing");
+  }, 2000);
+}
+function removeAnimateModalContainer() {
+  modal.classList.remove("animate__animated"); 
+  modal.classList.remove("animate__bounceInLeft"); 
+  modalText.classList.remove("animate__animated"); 
+  modalText.classList.remove("animate__rubberBand");
+  buttomClose.classList.remove("animate__animated"); 
+  buttomClose.classList.remove("animate__swing");
 }
 
 function deleteChildArray() {
@@ -228,4 +263,58 @@ function cleanChild() {
   deleteChildArray();
 }
 
+function createDummy() {
+  if(userlevel[0]===1){
+    const head = document.createElement("div");
+    head.classList.add("head");
+    spaceImage.appendChild(head);
+  }
+  if(userlevel[1]===1){
+    const earsEarsRight = document.createElement("div");
+    earsEarsRight.classList.add("ears");
+    earsEarsRight.classList.add("earsRight");
+    spaceImage.appendChild(earsEarsRight);
+  }
+  if(userlevel[2]===1){
+    const earsEarsRight = document.createElement("div");
+    earsEarsRight.classList.add("ears");
+    earsEarsRight.classList.add("earsRight");
+  }
+}
+const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+    
+        //product = {name, proce, image} -> product.image
+        var imageCard = document.createElement("img");
+        imageCard.setAttribute("src", product.image);
+        /* imageCard.classList.add("product-card-img");
+        imageCard.classList.add(product.name); */
+        imageCard.addEventListener("click", openProductDetailAside);
+        imageCard.addEventListener("click", insertProductDetailList(imageCard.getAttribute("src")));
 
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
+    
+        const productInfoDiv = document.createElement("div");
+    
+        const productPrice = document.createElement("p");
+        productPrice.innerText = "$" + product.price;
+        const productName = document.createElement("p");
+        productName.innerText = product.name;
+    
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        const productInfoFigure = document.createElement("figure");
+        const productImgCart = document.createElement("img");
+        productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    
+        productInfoFigure.appendChild(productImgCart);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(imageCard);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
