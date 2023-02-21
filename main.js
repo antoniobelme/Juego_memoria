@@ -18,6 +18,7 @@ const modal = document.querySelector('.modal');
 const buttomClose = document.querySelector('.buttomClose');
 const spaceImage = document.querySelector('.spaceImage');
 const head = document.querySelector('.headTwo');
+const headTree = document.querySelector('.headTree');
 
 buttomPlay.addEventListener("click", buttomToPlay);
 buttomValidate.addEventListener("click", buttomToValidate);
@@ -87,7 +88,10 @@ function buttomClosePopUp(){
   setTimeout(function() {
     modalContainer.classList.add("inactive");
     modal.classList.remove("animate__animated"); 
-  modal.classList.remove("animate__backOutRight");
+    modal.classList.remove("animate__backOutRight");
+    modal.classList.remove("modifyModal");
+    headTree.classList.add("inactive");
+    modalText.classList.remove("modifyText");
   }, 1000);
   createDummy();
 }
@@ -338,5 +342,16 @@ function createDummy() {
     head.appendChild(bottom);
     head.appendChild(nose);
     head.appendChild(mouth);
+    setTimeout(function() {
+      modifyModal();
+    }, 5000);
+    userlevel.length = 0;
   }
+}
+function modifyModal(){
+  modalContainer.classList.remove("inactive");
+  modal.classList.add("modifyModal");
+  headTree.classList.remove("inactive");
+  modalText.classList.add("modifyText");
+  modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
 }

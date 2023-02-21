@@ -262,6 +262,7 @@ main {
   background-color: var(--pink-soul);
 }
 .modalText{
+  text-align: center;
   font-size: 60px;
   color:var(--dark-red)
 }
@@ -282,6 +283,16 @@ footer{
 }
 .inactive {
   display: none;
+}
+.modifyModal {
+  width: 600px;
+  height: 600px;
+}
+.modifyImage{
+  margin-bottom: 50px;
+}
+.modifyText{
+  font-size: 45px;
 }
 @media (max-height: 600px) {
   .containerLeft{
