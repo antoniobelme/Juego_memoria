@@ -215,20 +215,21 @@ function validateSelection() {
   if(notRepeatChild.length != 0){
     for(let i = 0; i <= notRepeatChild.length; i++){
       if(notRepeatChildClass[i]==userSelectionChild[i]){
-        notRepeatChildClass.shift(i);
-        userSelectionChild.shift(i);
+        notRepeatChildClass.splice(0, 1);
+        userSelectionChild.splice(0, 1);
       }
     }
-    if(userSelectionChild.length==0){
+    if(userSelectionChild.length == 0){
       modalContainer.classList.remove("inactive");
       addAnimateModalContainer()
       modalText.innerText = "Felicitaciones";
       deleteChildArray();
       userlevel.push(1);
-    } if(userSelectionChild.length!=0){
+    } 
+    if(userSelectionChild.length != 0){
       modalContainer.classList.remove("inactive");
       addAnimateModalContainer()
-      modalText.innerText = "!Hazlo mejor!";
+      modalText.innerText = "¡Hazlo mejor!";
       deleteChildArray();
     } 
   } else {
@@ -236,8 +237,8 @@ function validateSelection() {
     addAnimateModalContainer()
     modalText.innerText = "Juega para validar";
   }
-  
 }
+
 function addAnimateModalContainer() {
   modal.classList.add("animate__animated"); 
   modalText.classList.add("animate__animated"); 
@@ -344,10 +345,44 @@ function createDummy() {
     head.appendChild(mouth);
     setTimeout(function() {
       modifyModal();
-    }, 5000);
+    }, 2000);
     userlevel.length = 0;
+    setTimeout(function() {
+      deleteDummy();
+    }, 2000);
   }
 }
+
+function deleteDummy() {
+    const earsRight = document.querySelector('.earsRight');
+    const earsLeft = document.querySelector('.earsLeft');
+    const neck = document.querySelector('.neck');
+    const eyePupil = document.querySelector('.eyePupil');
+    const eyeLeft = document.querySelector('.eye-left');
+    const eyeRight = document.querySelector('.eye-right');
+
+    eyeLeft.removeChild(eyePupil);
+    eyeRight.removeChild(eyePupil);
+    head.removeChild(earsRight);
+    head.removeChild(earsLeft);
+    head.removeChild(neck);
+    head.removeChild(eyeLeft);
+    head.removeChild(eyeRight);
+
+    const front = document.querySelector('.front');
+    head.removeChild(front);
+    const bottom = document.querySelector('.bottom');
+    head.removeChild(bottom);
+    const nose = document.querySelector('.nose');
+    head.removeChild(nose);
+    const mouth = document.querySelector('.mouth');
+    head.removeChild(mouth);
+    const teeth = document.querySelector('.teeth');
+    head.removeChild(teeth);
+    const tongue = document.querySelector('.tongue');
+    head.removeChild(tongue);
+}
+
 function modifyModal(){
   modalContainer.classList.remove("inactive");
   modal.classList.add("modifyModal");
