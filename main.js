@@ -16,13 +16,18 @@ const buttomValidate = document.querySelector('.buttomValidate');
 const modalContainer = document.querySelector('.modalContainer');
 const modal = document.querySelector('.modal');
 const buttomClose = document.querySelector('.buttomClose');
-const spaceImage = document.querySelector('.spaceImage');
-const head = document.querySelector('.headTwo');
-const headTree = document.querySelector('.headTree');
+const spaceImageOne = document.querySelector('#spaceImageOne');
+const headOne = document.querySelector('#headOne');
+const spaceImageTwo = document.querySelector('#spaceImageTwo');
+const headTwo = document.querySelector('#headTwo');
+const headTree = document.querySelector('#headTree');
+const mediaQuery450 = window.matchMedia('(max-width: 450px)');
 
 buttomPlay.addEventListener("click", buttomToPlay);
 buttomValidate.addEventListener("click", buttomToValidate);
 buttomClose.addEventListener("click", buttomClosePopUp);
+mediaQuery450.addListener(createDummyMediaQuery450);
+/* mediaQuery450.addEventListener('change', createDummyMediaQuery450); */
 
 //
 const arrChild = [
@@ -93,7 +98,9 @@ function buttomClosePopUp(){
     headTree.classList.add("inactive");
     modalText.classList.remove("modifyText");
   }, 1000);
-  createDummy();
+  if (!mediaQuery450.matches){
+    createDummy();
+  }
 }
 
 function pushChild() {
@@ -212,31 +219,31 @@ function userSelection(varChild) {
 }
 
 function validateSelection() {
-  if(notRepeatChild.length != 0){
-    for(let i = 0; i <= notRepeatChild.length; i++){
-      if(notRepeatChildClass[i]==userSelectionChild[i]){
-        notRepeatChildClass.splice(0, 1);
-        userSelectionChild.splice(0, 1);
+    if(notRepeatChild.length != 0){
+      for(let i = 0; i <= notRepeatChild.length; i++){
+        if(notRepeatChildClass[0]==userSelectionChild[0]){
+          notRepeatChildClass.splice(0, 1);
+          userSelectionChild.splice(0, 1);
+        }
       }
+      if(userSelectionChild.length == 0){
+        modalContainer.classList.remove("inactive");
+        addAnimateModalContainer()
+        modalText.innerText = "Felicitaciones";
+        deleteChildArray();
+        userlevel.push(1);
+      } 
+      if(userSelectionChild.length != 0){
+        modalContainer.classList.remove("inactive");
+        addAnimateModalContainer()
+        modalText.innerText = "¡Hazlo mejor!";
+        deleteChildArray();
+      } 
+    } else {
+      modalContainer.classList.remove("inactive");
+      addAnimateModalContainer()
+      modalText.innerText = "Juega para validar";
     }
-    if(userSelectionChild.length == 0){
-      modalContainer.classList.remove("inactive");
-      addAnimateModalContainer()
-      modalText.innerText = "Felicitaciones";
-      deleteChildArray();
-      userlevel.push(1);
-    } 
-    if(userSelectionChild.length != 0){
-      modalContainer.classList.remove("inactive");
-      addAnimateModalContainer()
-      modalText.innerText = "¡Hazlo mejor!";
-      deleteChildArray();
-    } 
-  } else {
-    modalContainer.classList.remove("inactive");
-    addAnimateModalContainer()
-    modalText.innerText = "Juega para validar";
-  }
 }
 
 function addAnimateModalContainer() {
@@ -277,7 +284,7 @@ function cleanChild() {
   deleteChildArray();
 }
 
-function createDummy() {
+/* function createDummy() {
   if(userlevel[0]===1){
     head.classList.add("head");
   }
@@ -351,6 +358,79 @@ function createDummy() {
       deleteDummy();
     }, 2000);
   }
+} */
+
+function createDummy() {
+  if(userlevel[0]===1){
+    spaceImageOne.classList.add("spaceImage");
+    headOne.classList.add("head");
+    const earsRight = document.createElement("div");
+    earsRight.classList.add("ears");
+    earsRight.classList.add("earsRight");
+
+    const earsLeft = document.createElement("div");
+    earsLeft.classList.add("ears");
+    earsLeft.classList.add("earsLeft");
+
+    const neck = document.createElement("div");
+    neck.classList.add("neck");
+
+    headOne.appendChild(earsRight);
+    headOne.appendChild(earsLeft);
+    headOne.appendChild(neck);
+
+    const eyeLeft = document.createElement("div");
+    eyeLeft.classList.add("eye");
+    eyeLeft.classList.add("eye-left");
+
+    const eyeRight = document.createElement("div");
+    eyeRight.classList.add("eye");
+    eyeRight.classList.add("eye-right");
+
+    const eyePupil = document.createElement("div");
+    eyePupil.classList.add("eyePupil");
+    const eyePupilTwo = document.createElement("div");
+    eyePupilTwo.classList.add("eyePupil");
+    eyePupilTwo.classList.add("eyePupiltwo");
+
+    eyeLeft.appendChild(eyePupil);
+    eyeRight.appendChild(eyePupilTwo);
+
+    const front = document.createElement("div");
+    front.classList.add("front");
+
+    headOne.appendChild(eyeLeft);
+    headOne.appendChild(eyeRight);
+    headOne.appendChild(front);
+    const bottom = document.createElement("div");
+    bottom.classList.add("bottom");
+
+    const nose = document.createElement("div");
+    nose.classList.add("nose");
+
+    const mouth = document.createElement("div");
+    mouth.classList.add("mouth");
+
+    const teeth = document.createElement("div");
+    teeth.classList.add("teeth");
+
+    const tongue = document.createElement("div");
+    tongue.classList.add("tongue");
+
+    mouth.appendChild(teeth);
+    mouth.appendChild(tongue);
+
+    headOne.appendChild(bottom);
+    headOne.appendChild(nose);
+    headOne.appendChild(mouth);
+    setTimeout(function() {
+      modifyModal();
+    }, 2000);
+    userlevel.length = 0;
+    setTimeout(function() {
+      deleteDummy();
+    }, 2000);
+  }
 }
 
 function deleteDummy() {
@@ -358,29 +438,31 @@ function deleteDummy() {
     const earsLeft = document.querySelector('.earsLeft');
     const neck = document.querySelector('.neck');
     const eyePupil = document.querySelector('.eyePupil');
+    const eyePupiltwo = document.querySelector('.eyePupiltwo');
     const eyeLeft = document.querySelector('.eye-left');
     const eyeRight = document.querySelector('.eye-right');
-
-    eyeLeft.removeChild(eyePupil);
-    eyeRight.removeChild(eyePupil);
-    head.removeChild(earsRight);
-    head.removeChild(earsLeft);
-    head.removeChild(neck);
-    head.removeChild(eyeLeft);
-    head.removeChild(eyeRight);
-
     const front = document.querySelector('.front');
-    head.removeChild(front);
     const bottom = document.querySelector('.bottom');
-    head.removeChild(bottom);
     const nose = document.querySelector('.nose');
-    head.removeChild(nose);
     const mouth = document.querySelector('.mouth');
-    head.removeChild(mouth);
     const teeth = document.querySelector('.teeth');
-    head.removeChild(teeth);
     const tongue = document.querySelector('.tongue');
-    head.removeChild(tongue);
+
+    mouth.removeChild(teeth);
+    mouth.removeChild(tongue);
+    eyeLeft.removeChild(eyePupil);
+    eyeRight.removeChild(eyePupiltwo);
+    headOne.removeChild(earsRight);
+    headOne.removeChild(earsLeft);
+    headOne.removeChild(neck);
+    headOne.removeChild(eyeLeft);
+    headOne.removeChild(eyeRight);
+    headOne.removeChild(front);
+    headOne.removeChild(bottom);
+    headOne.removeChild(nose);
+    headOne.removeChild(mouth);
+    spaceImageOne.classList.remove("spaceImage");
+    headOne.classList.remove("head");
 }
 
 function modifyModal(){
@@ -389,4 +471,79 @@ function modifyModal(){
   headTree.classList.remove("inactive");
   modalText.classList.add("modifyText");
   modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
+}
+
+function createDummyMediaQuery450(){
+  console.log("hola");
+    if(userlevel[0]===1){
+      spaceImageTwo.classList.add("spaceImage");
+      headTwo.classList.add("head");
+      headTwo.classList.add("modifyImage");
+      const earsRight = document.createElement("div");
+      earsRight.classList.add("ears");
+      earsRight.classList.add("earsRight");
+  
+      const earsLeft = document.createElement("div");
+      earsLeft.classList.add("ears");
+      earsLeft.classList.add("earsLeft");
+  
+      const neck = document.createElement("div");
+      neck.classList.add("neck");
+  
+      headTwo.appendChild(earsRight);
+      headTwo.appendChild(earsLeft);
+      headTwo.appendChild(neck);
+  
+      const eyeLeft = document.createElement("div");
+      eyeLeft.classList.add("eye");
+      eyeLeft.classList.add("eye-left");
+  
+      const eyeRight = document.createElement("div");
+      eyeRight.classList.add("eye");
+      eyeRight.classList.add("eye-right");
+  
+      const eyePupil = document.createElement("div");
+      eyePupil.classList.add("eyePupil");
+      const eyePupilTwo = document.createElement("div");
+      eyePupilTwo.classList.add("eyePupil");
+      eyePupilTwo.classList.add("eyePupiltwo");
+  
+      eyeLeft.appendChild(eyePupil);
+      eyeRight.appendChild(eyePupilTwo);
+  
+      const front = document.createElement("div");
+      front.classList.add("front");
+  
+      headTwo.appendChild(eyeLeft);
+      headTwo.appendChild(eyeRight);
+      headTwo.appendChild(front);
+      const bottom = document.createElement("div");
+      bottom.classList.add("bottom");
+  
+      const nose = document.createElement("div");
+      nose.classList.add("nose");
+  
+      const mouth = document.createElement("div");
+      mouth.classList.add("mouth");
+  
+      const teeth = document.createElement("div");
+      teeth.classList.add("teeth");
+  
+      const tongue = document.createElement("div");
+      tongue.classList.add("tongue");
+  
+      mouth.appendChild(teeth);
+      mouth.appendChild(tongue);
+  
+      headTwo.appendChild(bottom);
+      headTwo.appendChild(nose);
+      headTwo.appendChild(mouth);
+      setTimeout(function() {
+        modifyModal();
+      }, 2000);
+      userlevel.length = 0;
+      /* setTimeout(function() {
+        deleteDummy();
+      }, 2000); */
+    }
 }
