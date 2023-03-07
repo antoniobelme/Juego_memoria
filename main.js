@@ -21,12 +21,12 @@ const headOne = document.querySelector('#headOne');
 const spaceImageTwo = document.querySelector('#spaceImageTwo');
 const headTwo = document.querySelector('#headTwo');
 const headTree = document.querySelector('#headTree');
-const mediaQuery450 = window.matchMedia('(max-width: 450px)');
+/* const mediaQuery450 = window.matchMedia('(max-width: 450px)'); */
 
 buttomPlay.addEventListener("click", buttomToPlay);
 buttomValidate.addEventListener("click", buttomToValidate);
 buttomClose.addEventListener("click", buttomClosePopUp);
-mediaQuery450.addListener(createDummyMediaQuery450);
+/* mediaQuery450.addListener(createDummyMediaQuery450); */
 /* mediaQuery450.addEventListener('change', createDummyMediaQuery450); */
 
 //
@@ -95,13 +95,23 @@ function buttomClosePopUp(){
     modal.classList.remove("animate__animated"); 
     modal.classList.remove("animate__backOutRight");
     modal.classList.remove("modifyModal");
-    headTree.classList.add("inactive");
     modalText.classList.remove("modifyText");
   }, 1000);
-  if (!mediaQuery450.matches){
+  if (window.innerWidth >= 451){
     createDummy();
   }
-}
+  if (window.innerWidth <= 450){
+    deleteDummy();
+    setTimeout(function() {
+      modifyModal();
+    }, 2000);
+    if (buttomClose.textContent === 'Siguiente Nivel') {
+      console.log('Siguiente Nivel');
+      deleteDummyFinalModal();
+      buttomClose.innerText = 'Cerrar';
+    }
+  }
+}/* tenemos que arreglar el tema de el botón 'Siguiente Nivel' */
 
 function pushChild() {
   for (let i = 0; i <= 20; i++){
@@ -219,7 +229,7 @@ function userSelection(varChild) {
 }
 
 function validateSelection() {
-    if(notRepeatChild.length != 0){
+    if(userSelectionChild.length != 0){
       for(let i = 0; i <= notRepeatChild.length; i++){
         if(notRepeatChildClass[0]==userSelectionChild[0]){
           notRepeatChildClass.splice(0, 1);
@@ -227,11 +237,14 @@ function validateSelection() {
         }
       }
       if(userSelectionChild.length == 0){
+        userlevel.push(1);
         modalContainer.classList.remove("inactive");
         addAnimateModalContainer()
         modalText.innerText = "Felicitaciones";
+        if(window.innerWidth <= 450){
+          createDummyMediaQuery450();
+        }
         deleteChildArray();
-        userlevel.push(1);
       } 
       if(userSelectionChild.length != 0){
         modalContainer.classList.remove("inactive");
@@ -434,51 +447,39 @@ function createDummy() {
 }
 
 function deleteDummy() {
-    const earsRight = document.querySelector('.earsRight');
-    const earsLeft = document.querySelector('.earsLeft');
-    const neck = document.querySelector('.neck');
-    const eyePupil = document.querySelector('.eyePupil');
-    const eyePupiltwo = document.querySelector('.eyePupiltwo');
-    const eyeLeft = document.querySelector('.eye-left');
-    const eyeRight = document.querySelector('.eye-right');
-    const front = document.querySelector('.front');
-    const bottom = document.querySelector('.bottom');
-    const nose = document.querySelector('.nose');
-    const mouth = document.querySelector('.mouth');
-    const teeth = document.querySelector('.teeth');
-    const tongue = document.querySelector('.tongue');
-
-    mouth.removeChild(teeth);
-    mouth.removeChild(tongue);
-    eyeLeft.removeChild(eyePupil);
-    eyeRight.removeChild(eyePupiltwo);
-    headOne.removeChild(earsRight);
-    headOne.removeChild(earsLeft);
-    headOne.removeChild(neck);
-    headOne.removeChild(eyeLeft);
-    headOne.removeChild(eyeRight);
-    headOne.removeChild(front);
-    headOne.removeChild(bottom);
-    headOne.removeChild(nose);
-    headOne.removeChild(mouth);
-    spaceImageOne.classList.remove("spaceImage");
-    headOne.classList.remove("head");
+    if(window.innerWidth >= 451 && headOne.classList.contains("head")){
+      headOne.innerHTML = '';
+      spaceImageOne.classList.remove("spaceImage");
+      headOne.classList.remove("head");
+    }
+    if(window.innerWidth <= 450 && headTwo.classList.contains("head")){
+      headTwo.innerHTML = '';
+      spaceImageTwo.classList.remove("spaceImage");
+      headTwo.classList.remove("head");
+      headTwo.classList.remove("modifyImage");
+      modalContainer.classList.add("inactive");
+      modal.classList.remove("modifyModal");
+    }
 }
 
 function modifyModal(){
   modalContainer.classList.remove("inactive");
   modal.classList.add("modifyModal");
-  headTree.classList.remove("inactive");
-  modalText.classList.add("modifyText");
   modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
+  modalText.classList.add("modifyText");
+  createDummyFinalModal();
+  buttomClose.innerText = 'Siguiente Nivel';
 }
 
 function createDummyMediaQuery450(){
-  console.log("hola");
-    if(userlevel[0]===1){
+    if(userlevel[0] === 1){
+      modalContainer.classList.remove("inactive");
+      modal.classList.add("modifyModal");
+
       spaceImageTwo.classList.add("spaceImage");
       headTwo.classList.add("head");
       headTwo.classList.add("modifyImage");
+      
       const earsRight = document.createElement("div");
       earsRight.classList.add("ears");
       earsRight.classList.add("earsRight");
@@ -538,12 +539,80 @@ function createDummyMediaQuery450(){
       headTwo.appendChild(bottom);
       headTwo.appendChild(nose);
       headTwo.appendChild(mouth);
-      setTimeout(function() {
-        modifyModal();
-      }, 2000);
-      userlevel.length = 0;
-      /* setTimeout(function() {
-        deleteDummy();
-      }, 2000); */
+      
+      /* userlevel.length = 0; */
     }
+}
+function createDummyFinalModal(){
+      headTree.classList.add("head");
+      headTree.classList.add("modifyImage");
+      
+      const earsRight = document.createElement("div");
+      earsRight.classList.add("ears");
+      earsRight.classList.add("earsRight");
+  
+      const earsLeft = document.createElement("div");
+      earsLeft.classList.add("ears");
+      earsLeft.classList.add("earsLeft");
+  
+      const neck = document.createElement("div");
+      neck.classList.add("neck");
+  
+      headTree.appendChild(earsRight);
+      headTree.appendChild(earsLeft);
+      headTree.appendChild(neck);
+  
+      const eyeLeft = document.createElement("div");
+      eyeLeft.classList.add("eye");
+      eyeLeft.classList.add("eye-left");
+  
+      const eyeRight = document.createElement("div");
+      eyeRight.classList.add("eye");
+      eyeRight.classList.add("eye-right");
+  
+      const eyePupil = document.createElement("div");
+      eyePupil.classList.add("eyePupil");
+      const eyePupilTwo = document.createElement("div");
+      eyePupilTwo.classList.add("eyePupil");
+      eyePupilTwo.classList.add("eyePupiltwo");
+  
+      eyeLeft.appendChild(eyePupil);
+      eyeRight.appendChild(eyePupilTwo);
+  
+      const front = document.createElement("div");
+      front.classList.add("front");
+  
+      headTree.appendChild(eyeLeft);
+      headTree.appendChild(eyeRight);
+      headTree.appendChild(front);
+
+      const bottom = document.createElement("div");
+      bottom.classList.add("bottom");
+  
+      const nose = document.createElement("div");
+      nose.classList.add("nose");
+  
+      const mouth = document.createElement("div");
+      mouth.classList.add("mouth");
+  
+      const teeth = document.createElement("div");
+      teeth.classList.add("teeth");
+  
+      const tongue = document.createElement("div");
+      tongue.classList.add("tongue");
+  
+      mouth.appendChild(teeth);
+      mouth.appendChild(tongue);
+  
+      headTree.appendChild(bottom);
+      headTree.appendChild(nose);
+      headTree.appendChild(mouth);
+}
+
+function deleteDummyFinalModal(){
+  headTree.innerHTML = '';
+  headTree.classList.remove("head");
+  headTree.classList.remove("modifyImage");
+  modalContainer.classList.add("inactive");
+  modal.classList.remove("modifyModal");
 }
