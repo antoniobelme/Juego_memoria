@@ -352,7 +352,7 @@ function createDummy() {
     const front = document.createElement("div");
     front.classList.add("front");
     headOne.appendChild(front);
-    
+
   } if(winLevel[5]===1){
     const bottom = document.createElement("div");
     bottom.classList.add("bottom");
@@ -386,79 +386,6 @@ function createDummy() {
     }, 2000);
   }
 }
-
-/* function createDummy() {
-  if(winLevel[0]===1){
-    spaceImageOne.classList.add("spaceImage");
-    headOne.classList.add("head");
-    const earsRight = document.createElement("div");
-    earsRight.classList.add("ears");
-    earsRight.classList.add("earsRight");
-
-    const earsLeft = document.createElement("div");
-    earsLeft.classList.add("ears");
-    earsLeft.classList.add("earsLeft");
-
-    const neck = document.createElement("div");
-    neck.classList.add("neck");
-
-    headOne.appendChild(earsRight);
-    headOne.appendChild(earsLeft);
-    headOne.appendChild(neck);
-
-    const eyeLeft = document.createElement("div");
-    eyeLeft.classList.add("eye");
-    eyeLeft.classList.add("eye-left");
-
-    const eyeRight = document.createElement("div");
-    eyeRight.classList.add("eye");
-    eyeRight.classList.add("eye-right");
-
-    const eyePupil = document.createElement("div");
-    eyePupil.classList.add("eyePupil");
-    const eyePupilTwo = document.createElement("div");
-    eyePupilTwo.classList.add("eyePupil");
-    eyePupilTwo.classList.add("eyePupiltwo");
-
-    eyeLeft.appendChild(eyePupil);
-    eyeRight.appendChild(eyePupilTwo);
-
-    const front = document.createElement("div");
-    front.classList.add("front");
-
-    headOne.appendChild(eyeLeft);
-    headOne.appendChild(eyeRight);
-    headOne.appendChild(front);
-    const bottom = document.createElement("div");
-    bottom.classList.add("bottom");
-
-    const nose = document.createElement("div");
-    nose.classList.add("nose");
-
-    const mouth = document.createElement("div");
-    mouth.classList.add("mouth");
-
-    const teeth = document.createElement("div");
-    teeth.classList.add("teeth");
-
-    const tongue = document.createElement("div");
-    tongue.classList.add("tongue");
-
-    mouth.appendChild(teeth);
-    mouth.appendChild(tongue);
-
-    headOne.appendChild(bottom);
-    headOne.appendChild(nose);
-    headOne.appendChild(mouth);
-    setTimeout(function() {
-      modifyModal();
-    }, 2000);
-    winLevel.length = 0;
-    setTimeout(function() {
-      deleteDummy();
-    }, 2000);
-  }
-} */
 
 function deleteDummy() {
     if(window.innerWidth >= 451 && headOne.classList.contains("head")){
@@ -553,10 +480,10 @@ function createDummyMediaQuery450(){
       headTwo.appendChild(bottom);
       headTwo.appendChild(nose);
       headTwo.appendChild(mouth);
-      
       /* winLevel.length = 0; */
     }
 }
+
 function createDummyFinalModal(){
       headTree.classList.add("head");
       headTree.classList.add("modifyImage");
@@ -632,4 +559,77 @@ function deleteDummyFinalModal(){
   winLevel.length = 0; /* Esto elimina el valor en la posición 0, indica que el nivel fue superado, la idea sería sustituir este indicador por otro valor en vez de eliminarlo. para así poder gestionar los niveles. */
 }
 
-/* Falta seccionar la creación del dummy para el primer nivel, y falta crear los demas niveles. */
+/* Falta seccionar la creación del dummy para el primer nivel en mobile, y falta crear los demas niveles. */
+
+/* function createDummy() {
+  if(winLevel[0]===1){
+    spaceImageOne.classList.add("spaceImage");
+    headOne.classList.add("head");
+    const earsRight = document.createElement("div");
+    earsRight.classList.add("ears");
+    earsRight.classList.add("earsRight");
+
+    const earsLeft = document.createElement("div");
+    earsLeft.classList.add("ears");
+    earsLeft.classList.add("earsLeft");
+
+    const neck = document.createElement("div");
+    neck.classList.add("neck");
+
+    headOne.appendChild(earsRight);
+    headOne.appendChild(earsLeft);
+    headOne.appendChild(neck);
+
+    const eyeLeft = document.createElement("div");
+    eyeLeft.classList.add("eye");
+    eyeLeft.classList.add("eye-left");
+
+    const eyeRight = document.createElement("div");
+    eyeRight.classList.add("eye");
+    eyeRight.classList.add("eye-right");
+
+    const eyePupil = document.createElement("div");
+    eyePupil.classList.add("eyePupil");
+    const eyePupilTwo = document.createElement("div");
+    eyePupilTwo.classList.add("eyePupil");
+    eyePupilTwo.classList.add("eyePupiltwo");
+
+    eyeLeft.appendChild(eyePupil);
+    eyeRight.appendChild(eyePupilTwo);
+
+    const front = document.createElement("div");
+    front.classList.add("front");
+
+    headOne.appendChild(eyeLeft);
+    headOne.appendChild(eyeRight);
+    headOne.appendChild(front);
+    const bottom = document.createElement("div");
+    bottom.classList.add("bottom");
+
+    const nose = document.createElement("div");
+    nose.classList.add("nose");
+
+    const mouth = document.createElement("div");
+    mouth.classList.add("mouth");
+
+    const teeth = document.createElement("div");
+    teeth.classList.add("teeth");
+
+    const tongue = document.createElement("div");
+    tongue.classList.add("tongue");
+
+    mouth.appendChild(teeth);
+    mouth.appendChild(tongue);
+
+    headOne.appendChild(bottom);
+    headOne.appendChild(nose);
+    headOne.appendChild(mouth);
+    setTimeout(function() {
+      modifyModal();
+    }, 2000);
+    winLevel.length = 0;
+    setTimeout(function() {
+      deleteDummy();
+    }, 2000);
+  }
+} */
