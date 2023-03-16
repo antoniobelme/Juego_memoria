@@ -1,3 +1,4 @@
+/* Declaración de variables Globales*/
 const buttomPlay = document.querySelector('.buttomPlay');
 const childUno = document.querySelector('.childUno');
 const childDos = document.querySelector('.childDos');
@@ -21,15 +22,8 @@ const headOne = document.querySelector('#headOne');
 const spaceImageTwo = document.querySelector('#spaceImageTwo');
 const headTwo = document.querySelector('#headTwo');
 const headTree = document.querySelector('#headTree');
-/* const mediaQuery450 = window.matchMedia('(max-width: 450px)'); */
 
-buttomPlay.addEventListener("click", buttomToPlay);
-buttomValidate.addEventListener("click", buttomToValidate);
-buttomClose.addEventListener("click", buttomClosePopUp);
-/* mediaQuery450.addListener(createDummyMediaQuery450); */
-/* mediaQuery450.addEventListener('change', createDummyMediaQuery450); */
-
-//
+/* Declaración de arrays Globales*/
 const arrChild = [
   "childUno",
   "childDos",
@@ -61,8 +55,22 @@ const arrChildVars = [
 const notRepeatChild = [];
 const notRepeatChildClass = [];
 const userSelectionChild = [];
-const userlevel = [];
+const winLevel = [];
 
+/* Eventos de escucha Globales */
+buttomPlay.addEventListener("click", buttomToPlay);
+buttomValidate.addEventListener("click", buttomToValidate);
+buttomClose.addEventListener("click", function() {
+  if (buttomClose.textContent === 'Cerrar') {
+      buttomClosePopUp();
+  } else if (buttomClose.textContent === 'Siguiente Nivel') {
+    deleteDummyFinalModal();
+    buttomClose.innerText = 'Cerrar';
+  }
+});
+/* Funciones */
+
+/* Funciones de los botones */
 function buttomToPlay(){
   buttomPlay.classList.add("animate__animated");
   buttomPlay.classList.add("animate__shakeY");
@@ -82,10 +90,6 @@ function buttomToValidate(){
   }, 2 * 1000);
 }
 
-function randomNumber() {
-  return Math.floor(Math.random() * 12) + 1;
-}
-
 function buttomClosePopUp(){
   removeAnimateModalContainer()
   modal.classList.add("animate__animated"); 
@@ -102,16 +106,18 @@ function buttomClosePopUp(){
   }
   if (window.innerWidth <= 450){
     deleteDummy();
-    setTimeout(function() {
-      modifyModal();
-    }, 2000);
-    if (buttomClose.textContent === 'Siguiente Nivel') {
-      console.log('Siguiente Nivel');
-      deleteDummyFinalModal();
-      buttomClose.innerText = 'Cerrar';
+    if(winLevel[0]===1){
+      setTimeout(function() {
+        modifyModal();
+      }, 2000);
     }
   }
-}/* tenemos que arreglar el tema de el botón 'Siguiente Nivel' */
+}
+
+/* Funciones child aleatoreos */
+function randomNumber() {
+  return Math.floor(Math.random() * 12) + 1;
+}
 
 function pushChild() {
   for (let i = 0; i <= 20; i++){
@@ -148,6 +154,8 @@ function returnChild() {
   }, 6 * 1000);
 }
 
+
+/* Funciones elección child usuario */
 function timeDoClickChild() {
   childUno.addEventListener("click", function() {
     userSelection("childUno");
@@ -228,6 +236,7 @@ function userSelection(varChild) {
   }
 }
 
+/* Funciones de validación elección usuario */
 function validateSelection() {
     if(userSelectionChild.length != 0){
       for(let i = 0; i <= notRepeatChild.length; i++){
@@ -237,7 +246,7 @@ function validateSelection() {
         }
       }
       if(userSelectionChild.length == 0){
-        userlevel.push(1);
+        winLevel.push(1);
         modalContainer.classList.remove("inactive");
         addAnimateModalContainer()
         modalText.innerText = "Felicitaciones";
@@ -259,27 +268,6 @@ function validateSelection() {
     }
 }
 
-function addAnimateModalContainer() {
-  modal.classList.add("animate__animated"); 
-  modalText.classList.add("animate__animated"); 
-  modal.classList.add("animate__bounceInLeft"); 
-  setTimeout(function() {
-    modalText.classList.add("animate__rubberBand");
-  }, 1150);
-  setTimeout(function() {
-    buttomClose.classList.add("animate__animated"); 
-    buttomClose.classList.add("animate__swing");
-  }, 2000);
-}
-function removeAnimateModalContainer() {
-  modal.classList.remove("animate__animated"); 
-  modal.classList.remove("animate__bounceInLeft"); 
-  modalText.classList.remove("animate__animated"); 
-  modalText.classList.remove("animate__rubberBand");
-  buttomClose.classList.remove("animate__animated"); 
-  buttomClose.classList.remove("animate__swing");
-}
-
 function deleteChildArray() {
   notRepeatChild.length = 0;
   notRepeatChildClass.length = 0;
@@ -297,11 +285,34 @@ function cleanChild() {
   deleteChildArray();
 }
 
-/* function createDummy() {
-  if(userlevel[0]===1){
-    head.classList.add("head");
-  }
-  if(userlevel[1]===1){
+/* Funciones animación CSS */
+function addAnimateModalContainer() {
+  modal.classList.add("animate__animated"); 
+  modalText.classList.add("animate__animated"); 
+  modal.classList.add("animate__bounceInLeft"); 
+  setTimeout(function() {
+    modalText.classList.add("animate__rubberBand");
+  }, 1150);
+  setTimeout(function() {
+    buttomClose.classList.add("animate__animated"); 
+    buttomClose.classList.add("animate__swing");
+  }, 2000);
+}
+
+function removeAnimateModalContainer() {
+  modal.classList.remove("animate__animated"); 
+  modal.classList.remove("animate__bounceInLeft"); 
+  modalText.classList.remove("animate__animated"); 
+  modalText.classList.remove("animate__rubberBand");
+  buttomClose.classList.remove("animate__animated"); 
+  buttomClose.classList.remove("animate__swing");
+}
+
+/* Funciones de creación de dummys */
+function createDummy() {
+  if(winLevel[0]===1){
+    headOne.classList.add("head");
+  } if(winLevel[1]===1){
     const earsRight = document.createElement("div");
     earsRight.classList.add("ears");
     earsRight.classList.add("earsRight");
@@ -310,14 +321,15 @@ function cleanChild() {
     earsLeft.classList.add("ears");
     earsLeft.classList.add("earsLeft");
 
+    headOne.appendChild(earsRight);
+    headOne.appendChild(earsLeft);
+
+  } if(winLevel[2]===1){
     const neck = document.createElement("div");
     neck.classList.add("neck");
+    headOne.appendChild(neck);
 
-    head.appendChild(earsRight);
-    head.appendChild(earsLeft);
-    head.appendChild(neck);
-  }
-  if(userlevel[2]===1){
+  } if(winLevel[3]===1){
     const eyeLeft = document.createElement("div");
     eyeLeft.classList.add("eye");
     eyeLeft.classList.add("eye-left");
@@ -333,21 +345,25 @@ function cleanChild() {
 
     eyeLeft.appendChild(eyePupil);
     eyeRight.appendChild(eyePupilTwo);
+    headOne.appendChild(eyeLeft);
+    headOne.appendChild(eyeRight);
 
+  } if(winLevel[4]===1){
     const front = document.createElement("div");
     front.classList.add("front");
-
-    head.appendChild(eyeLeft);
-    head.appendChild(eyeRight);
-    head.appendChild(front);
-  }
-  if(userlevel[3]===1){
+    headOne.appendChild(front);
+    
+  } if(winLevel[5]===1){
     const bottom = document.createElement("div");
     bottom.classList.add("bottom");
+    headOne.appendChild(bottom);
 
+  } if(winLevel[6]===1){
     const nose = document.createElement("div");
     nose.classList.add("nose");
+    headOne.appendChild(nose);
 
+  } if(winLevel[7]===1){
     const mouth = document.createElement("div");
     mouth.classList.add("mouth");
 
@@ -359,22 +375,20 @@ function cleanChild() {
 
     mouth.appendChild(teeth);
     mouth.appendChild(tongue);
+    headOne.appendChild(mouth);
 
-    head.appendChild(bottom);
-    head.appendChild(nose);
-    head.appendChild(mouth);
     setTimeout(function() {
       modifyModal();
     }, 2000);
-    userlevel.length = 0;
+    winLevel.length = 0;
     setTimeout(function() {
       deleteDummy();
     }, 2000);
   }
-} */
+}
 
-function createDummy() {
-  if(userlevel[0]===1){
+/* function createDummy() {
+  if(winLevel[0]===1){
     spaceImageOne.classList.add("spaceImage");
     headOne.classList.add("head");
     const earsRight = document.createElement("div");
@@ -439,12 +453,12 @@ function createDummy() {
     setTimeout(function() {
       modifyModal();
     }, 2000);
-    userlevel.length = 0;
+    winLevel.length = 0;
     setTimeout(function() {
       deleteDummy();
     }, 2000);
   }
-}
+} */
 
 function deleteDummy() {
     if(window.innerWidth >= 451 && headOne.classList.contains("head")){
@@ -472,7 +486,7 @@ function modifyModal(){
 }
 
 function createDummyMediaQuery450(){
-    if(userlevel[0] === 1){
+    if(winLevel[0] === 1){
       modalContainer.classList.remove("inactive");
       modal.classList.add("modifyModal");
 
@@ -540,7 +554,7 @@ function createDummyMediaQuery450(){
       headTwo.appendChild(nose);
       headTwo.appendChild(mouth);
       
-      /* userlevel.length = 0; */
+      /* winLevel.length = 0; */
     }
 }
 function createDummyFinalModal(){
@@ -615,4 +629,7 @@ function deleteDummyFinalModal(){
   headTree.classList.remove("modifyImage");
   modalContainer.classList.add("inactive");
   modal.classList.remove("modifyModal");
+  winLevel.length = 0; /* Esto elimina el valor en la posición 0, indica que el nivel fue superado, la idea sería sustituir este indicador por otro valor en vez de eliminarlo. para así poder gestionar los niveles. */
 }
+
+/* Falta seccionar la creación del dummy para el primer nivel, y falta crear los demas niveles. */
