@@ -56,6 +56,14 @@ const notRepeatChild = [];
 const notRepeatChildClass = [];
 const userSelectionChild = [];
 const winLevel = [];
+const userLevel = [];
+
+/* Variables para modificar niveles */
+/* let varTimeDoClickChild = funTimeDoClickChild(); */
+/* let varModifyPushChild = funModifyPushChild(); */
+/* let varTimeModifyChild = funTimeModifyChild(); */
+/* let varTimeReturnChild = funTimeReturnChild(); */
+
 
 /* Eventos de escucha Globales */
 buttomPlay.addEventListener("click", buttomToPlay);
@@ -65,6 +73,7 @@ buttomClose.addEventListener("click", function() {
       buttomClosePopUp();
   } else if (buttomClose.textContent === 'Siguiente Nivel') {
     deleteDummyFinalModal();
+    buttomClose.classList.remove("buttomNextLevel");
     buttomClose.innerText = 'Cerrar';
   }
 });
@@ -72,6 +81,7 @@ buttomClose.addEventListener("click", function() {
 
 /* Funciones de los botones */
 function buttomToPlay(){
+  let varTimeDoClickChild = funTimeDoClickChild();
   buttomPlay.classList.add("animate__animated");
   buttomPlay.classList.add("animate__shakeY");
   modifyChild();
@@ -80,7 +90,7 @@ function buttomToPlay(){
     buttomPlay.classList.remove("animate__animated");
     buttomPlay.classList.remove("animate__shakeY");
     timeDoClickChild();
-  }, 6.5 * 1000);
+  }, varTimeDoClickChild);
 }
 
 function buttomToValidate(){
@@ -114,16 +124,115 @@ function buttomClosePopUp(){
   }
 }
 
+/* Funciones de variables para niveles del juego */
+
+function funTimeDoClickChild(){
+  let varTimeDoClickChild=" ";
+  if(userLevel.length == 0){
+    varTimeDoClickChild = 6.5 * 1000;
+  } if(userLevel[0] == 1){
+    varTimeDoClickChild = 7.5 * 1000;
+  } if(userLevel[1] == 1){
+    varTimeDoClickChild = 7.1 * 1000;
+  } if(userLevel[2] == 1){
+    varTimeDoClickChild = 8.1 * 1000;
+  } if(userLevel[3] == 1){
+    varTimeDoClickChild = 7.6 * 1000;
+  } if(userLevel[4] == 1){
+    varTimeDoClickChild = 7.1 * 1000;
+  } if(userLevel[5] == 1){
+    varTimeDoClickChild = 7.1 * 1000;
+  } if(userLevel[6] == 1){
+    varTimeDoClickChild = 6.8 * 1000;
+  } if(userLevel[7] == 1){
+    varTimeDoClickChild = 7.7 * 1000;
+  } if(userLevel[8] == 1){
+    varTimeDoClickChild = 9.9 * 1000;
+  }
+  return varTimeDoClickChild;
+}
+
+function funModifyPushChild(){
+  let varModifyPushChild = 0;
+  if(userLevel.length == 0){
+    varModifyPushChild = 3;
+  } if(userLevel[0] == 1 || userLevel[1] == 1){
+    varModifyPushChild = 4;
+  } if(userLevel[2] == 1 || userLevel[3] == 1 || userLevel[4] == 1){
+    varModifyPushChild = 5;
+  }  if(userLevel[5] == 1 || userLevel[6] == 1){
+    varModifyPushChild = 6;
+  } if(userLevel[7] == 1){
+    varModifyPushChild = 7;
+  } if(userLevel[8] == 9){
+    varModifyPushChild = 11;
+  }
+  return varModifyPushChild;
+}
+
+function funTimeModifyChild(){
+  let varTimeModifyChild=0;
+  if(userLevel.length == 0){
+    varTimeModifyChild = 1.8 * 1000;
+  } if(userLevel[0] == 1){
+    varTimeModifyChild = 1.6 * 1000;
+  } if(userLevel[1] == 1){
+    varTimeModifyChild = 1.5 * 1000;
+  } if(userLevel[2] == 1){
+    varTimeModifyChild = 1.4 * 1000;
+  } if(userLevel[3] == 1){
+    varTimeModifyChild = 1.3 * 1000;
+  } if(userLevel[4] == 1){
+    varTimeModifyChild = 1.2 * 1000;
+  } if(userLevel[5] == 1){
+    varTimeModifyChild = 1 * 1000;
+  } if(userLevel[6] == 1){
+    varTimeModifyChild = 0.95 * 1000;
+  } if(userLevel[7] == 1){
+    varTimeModifyChild = 0.85 * 1000;
+  } if(userLevel[8] == 1){
+    varTimeModifyChild = 0.8 * 1000;
+  } 
+  return varTimeModifyChild;
+}
+
+function funTimeReturnChild(){
+  let varTimeReturnChild=0;
+  if(userLevel.length == 0){
+    varTimeReturnChild = 6.4 * 1000;
+  } if(userLevel[0] == 1){
+    varTimeReturnChild = 7.4 * 1000;
+  } if(userLevel[1] == 1){
+    varTimeReturnChild = 7 * 1000;
+  } if(userLevel[2] == 1){
+    varTimeReturnChild = 8 * 1000;
+  } if(userLevel[3] == 1){
+    varTimeReturnChild = 7.5 * 1000;
+  } if(userLevel[4] == 1){
+    varTimeReturnChild = 7 * 1000;
+  } if(userLevel[5] == 1){
+    varTimeReturnChild = 7 * 1000;
+  } if(userLevel[6] == 1){
+    varTimeReturnChild = 6.7 * 1000;
+  } if(userLevel[7] == 1){
+    varTimeReturnChild = 7 * 1000;
+  } if(userLevel[8] == 1){
+    varTimeReturnChild = 9.8 * 1000;
+  }
+  return varTimeReturnChild;
+}
+
 /* Funciones child aleatoreos */
 function randomNumber() {
   return Math.floor(Math.random() * 12) + 1;
 }
 
 function pushChild() {
+  let varModifyPushChild = funModifyPushChild();
   for (let i = 0; i <= 20; i++){
     const randomN = randomNumber();
     const childVar = document.querySelector("."+arrChild[randomN]);
-    if (notRepeatChild.indexOf(childVar) === -1 && notRepeatChild.length < 5 && childVar != null) {
+    if (notRepeatChild.indexOf(childVar) === -1 && notRepeatChild.length < varModifyPushChild && childVar != null) {
       notRepeatChild.push(childVar);
       notRepeatChildClass.push(arrChild[randomN]);
     }
@@ -133,6 +242,7 @@ function pushChild() {
 function modifyChild() {
   pushChild();
   let count = 0;
+  let varTimeModifyChild = funTimeModifyChild();
   const intervalId = setInterval(function() {
     if(notRepeatChild[count] != null){
       notRepeatChild[count].classList.remove("child");
@@ -142,16 +252,17 @@ function modifyChild() {
     if (count === notRepeatChild.length) {
       clearInterval(intervalId);
     }
-  }, 1000);
+  }, varTimeModifyChild);
 }
 
 function returnChild() {
+  let varTimeReturnChild = funTimeReturnChild();
   setTimeout(function() {
     for (let i = 0; i < notRepeatChild.length; i++){
       notRepeatChild[i].classList.remove("childModify");
       notRepeatChild[i].classList.add("child");
     }
-  }, 6 * 1000);
+  }, varTimeReturnChild);
 }
 
 
@@ -404,10 +515,12 @@ function deleteDummy() {
 }
 
 function modifyModal(){
+  userLevel.push(1);
   modalContainer.classList.remove("inactive");
   modal.classList.add("modifyModal");
-  modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
+  buttomClose.classList.add("buttomNextLevel");
   modalText.classList.add("modifyText");
+  modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
   createDummyFinalModal();
   buttomClose.innerText = 'Siguiente Nivel';
 }
@@ -416,11 +529,12 @@ function createDummyMediaQuery450(){
     if(winLevel[0] === 1){
       modalContainer.classList.remove("inactive");
       modal.classList.add("modifyModal");
-
+    
       spaceImageTwo.classList.add("spaceImage");
       headTwo.classList.add("head");
       headTwo.classList.add("modifyImage");
-      
+
+    } if(winLevel[1] === 1){ 
       const earsRight = document.createElement("div");
       earsRight.classList.add("ears");
       earsRight.classList.add("earsRight");
@@ -428,59 +542,58 @@ function createDummyMediaQuery450(){
       const earsLeft = document.createElement("div");
       earsLeft.classList.add("ears");
       earsLeft.classList.add("earsLeft");
-  
+
+      headTwo.appendChild(earsRight);
+      headTwo.appendChild(earsLeft);
+
+    } if(winLevel[2] === 1){
       const neck = document.createElement("div");
       neck.classList.add("neck");
   
-      headTwo.appendChild(earsRight);
-      headTwo.appendChild(earsLeft);
       headTwo.appendChild(neck);
-  
+
+    } if(winLevel[3] === 1){
       const eyeLeft = document.createElement("div");
       eyeLeft.classList.add("eye");
       eyeLeft.classList.add("eye-left");
-  
       const eyeRight = document.createElement("div");
       eyeRight.classList.add("eye");
       eyeRight.classList.add("eye-right");
-  
       const eyePupil = document.createElement("div");
       eyePupil.classList.add("eyePupil");
       const eyePupilTwo = document.createElement("div");
       eyePupilTwo.classList.add("eyePupil");
       eyePupilTwo.classList.add("eyePupiltwo");
-  
       eyeLeft.appendChild(eyePupil);
       eyeRight.appendChild(eyePupilTwo);
-  
-      const front = document.createElement("div");
-      front.classList.add("front");
-  
       headTwo.appendChild(eyeLeft);
       headTwo.appendChild(eyeRight);
+
+    } if(winLevel[4] === 1){
+      const front = document.createElement("div");
+      front.classList.add("front");
       headTwo.appendChild(front);
+    
+    } if(winLevel[5] === 1){
       const bottom = document.createElement("div");
       bottom.classList.add("bottom");
-  
+      headTwo.appendChild(bottom);
+
+    } if(winLevel[6] === 1){
       const nose = document.createElement("div");
       nose.classList.add("nose");
-  
+      headTwo.appendChild(nose);
+
+    } if(winLevel[7] === 1){
       const mouth = document.createElement("div");
       mouth.classList.add("mouth");
-  
       const teeth = document.createElement("div");
       teeth.classList.add("teeth");
-  
       const tongue = document.createElement("div");
       tongue.classList.add("tongue");
-  
       mouth.appendChild(teeth);
       mouth.appendChild(tongue);
-  
-      headTwo.appendChild(bottom);
-      headTwo.appendChild(nose);
       headTwo.appendChild(mouth);
-      /* winLevel.length = 0; */
     }
 }
 

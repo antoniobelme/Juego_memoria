@@ -242,6 +242,9 @@ main {
 .buttomValidate{
   background-color: var(--purple);
 }
+.buttomNextLevel{
+  width: 200px;
+}
 /* pop up */
 .modalContainer{
   width: 100vw;
@@ -389,9 +392,6 @@ footer{
     height: 500px;
     padding: 35px 20px;
   }
-  /* .modifyImage{
-    margin-bottom: 25px;
-  } */
   .modifyText{
     font-size: 30px;
   }
