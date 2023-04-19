@@ -1,0 +1,30 @@
+.spaceImage{
+    width: 300px;
+    height: 300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+  }
+
+.fondo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.head{
+    width: 140px;
+    height: 255px;
+    position: absolute;
+}
+.nose{
+    width: 53px;
+    height: 97px;
+    position: absolute;
+}
+.eyebrows{
+    width: 134px;
+    height: 38px;
+    position: absolute;
+    top: 78px;
+}

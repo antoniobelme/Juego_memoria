@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="9.614522cm"
+   height="9.4955368cm"
+   viewBox="0 0 96.14522 94.955368"
+   version="1.1"
+   id="svg5"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <color-profile
+       name="Adobe-RGB--1998-"
+       xlink:href="file:///System/Library/ColorSync/Profiles/AdobeRGB1998.icc"
+       id="color-profile3669" />
+    <color-profile
+       name="ACES-CG-Linear--Academy-Color-Encoding-System-AP1-"
+       xlink:href="file:///System/Library/ColorSync/Profiles/ACESCG%20Linear.icc"
+       id="color-profile3671" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-62.327812,-119.95373)">
+    <g
+       id="g6159"
+       style="display:inline">
+      <path
+         id="path1514-58"
+         style="fill:#2d2d2d;fill-opacity:0.988235;stroke-width:0.422916"
+         d="m 110.36987,119.95373 a 48.041864,21.416862 0 0 0 -48.038258,21.37875 h -0.0038 v 0.038 52.07634 h 0.09045 a 48.04187,21.416862 0 0 0 47.996128,20.87253 48.04187,21.416862 0 0 0 47.99614,-20.87247 h 0.0594 v -52.1144 h -0.0594 a 48.041864,21.416862 0 0 0 -48.04067,-21.37875 z" />
+      <path
+         id="path1514-58-9"
+         style="fill:#000000;fill-opacity:0.988235;stroke-width:0.422916"
+         d="m 62.334858,141.92223 h -0.004 v 0.038 52.07634 h 0.0905 c 0.661966,11.60718 21.95073,20.86523 47.996132,20.87253 26.04535,-0.007 47.3341,-9.26531 47.99614,-20.87247 h 0.0594 c -43.92686,17.99627 -63.067872,11.41795 -75.053728,0.16816 -12.828814,-12.04097 -15.052076,-39.42578 -0.69757,-41.97374 14.354505,-2.54797 44.281298,4.91751 42.278588,-6.4848 -0.96754,-5.50867 -9.31455,-35.39821 -46.95877,-20.0202 -3.822466,1.50064 -15.508074,5.70524 -15.706692,16.19618 z" />
+      <path
+         style="fill:#555555;fill-opacity:1;stroke-width:0.24359"
+         d="m 138.41871,126.82886 c 23.91642,8.01436 16.71347,15.1297 17.19117,33.65296 0.14481,5.61519 -3.98458,3.2745 -4.10843,0.22515 -0.65027,-16.01098 3.17659,-23.91796 -13.14938,-28.53464 -4.92689,-1.39324 -3.57889,-6.56508 0.0666,-5.34347 z"
+         id="path4865" />
+    </g>
+  </g>
+</svg>

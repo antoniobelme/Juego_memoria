@@ -1,4 +1,6 @@
 /* Declaración de variables Globales*/
+const containerTextLevel = document.querySelector('#containerTextLevel');
+const textLevel = document.querySelector('.textLevel');
 const buttomPlay = document.querySelector('.buttomPlay');
 const childUno = document.querySelector('.childUno');
 const childDos = document.querySelector('.childDos');
@@ -18,9 +20,7 @@ const modalContainer = document.querySelector('.modalContainer');
 const modal = document.querySelector('.modal');
 const buttomClose = document.querySelector('.buttomClose');
 const spaceImageOne = document.querySelector('#spaceImageOne');
-const headOne = document.querySelector('#headOne');
 const spaceImageTwo = document.querySelector('#spaceImageTwo');
-const headTwo = document.querySelector('#headTwo');
 const headTree = document.querySelector('#headTree');
 
 /* Declaración de arrays Globales*/
@@ -72,6 +72,8 @@ buttomClose.addEventListener("click", function() {
   if (buttomClose.textContent === 'Cerrar') {
       buttomClosePopUp();
   } else if (buttomClose.textContent === 'Siguiente Nivel') {
+    userLevel.push(1);
+    showLevel();
     deleteDummyFinalModal();
     buttomClose.classList.remove("buttomNextLevel");
     buttomClose.innerText = 'Cerrar';
@@ -116,7 +118,7 @@ function buttomClosePopUp(){
   }
   if (window.innerWidth <= 450){
     deleteDummy();
-    if(winLevel[0]===1){
+    if(winLevel[7]===1){
       setTimeout(function() {
         modifyModal();
       }, 2000);
@@ -362,19 +364,20 @@ function validateSelection() {
         addAnimateModalContainer()
         modalText.innerText = "Felicitaciones";
         if(window.innerWidth <= 450){
+          modal.classList.add("modifyModal");
           createDummyMediaQuery450();
         }
         deleteChildArray();
       } 
       if(userSelectionChild.length != 0){
         modalContainer.classList.remove("inactive");
-        addAnimateModalContainer()
+        addAnimateModalContainer();
         modalText.innerText = "¡Hazlo mejor!";
         deleteChildArray();
       } 
     } else {
       modalContainer.classList.remove("inactive");
-      addAnimateModalContainer()
+      addAnimateModalContainer();
       modalText.innerText = "Juega para validar";
     }
 }
@@ -422,7 +425,226 @@ function removeAnimateModalContainer() {
 /* Funciones de creación de dummys */
 function createDummy() {
   if(winLevel[0]===1){
-    headOne.classList.add("head");
+    spaceImageOne.classList.add("spaceImage");
+    const imagen_one = document.createElement("img");
+    imagen_one.classList.add("imageSvg");
+    imagen_one.src = "./img_svg/01.svg";
+    imagen_one.alt = "imagen 1";
+    spaceImageOne.appendChild(imagen_one);
+
+  } if(winLevel[1]===1){
+    const imagen_two = document.createElement("img");
+    imagen_two.classList.add("imageSvg");
+    imagen_two.src = "./img_svg/02.svg";
+    imagen_two.alt = "imagen 2";
+    spaceImageOne.appendChild(imagen_two);
+
+  } if(winLevel[2]===1){
+    const imagen_three = document.createElement("img");
+    imagen_three.classList.add("imageSvg");
+    imagen_three.src = "./img_svg/03.svg";
+    imagen_three.alt = "imagen 3";
+    spaceImageOne.appendChild(imagen_three);
+
+  } if(winLevel[3]===1){
+    const imagen_four = document.createElement("img");
+    imagen_four.classList.add("imageSvg");
+    imagen_four.src = "./img_svg/04.svg";
+    imagen_four.alt = "imagen 4";
+    spaceImageOne.appendChild(imagen_four);
+
+  } if(winLevel[4]===1){
+    const imagen_five = document.createElement("img");
+    imagen_five.classList.add("imageSvg");
+    imagen_five.src = "./img_svg/05.svg";
+    imagen_five.alt = "imagen 5";
+    spaceImageOne.appendChild(imagen_five);
+
+  } if(winLevel[5]===1){
+    const imagen_six = document.createElement("img");
+    imagen_six.classList.add("imageSvg");
+    imagen_six.src = "./img_svg/06.svg";
+    imagen_six.alt = "imagen 6";
+    spaceImageOne.appendChild(imagen_six);
+
+  } if(winLevel[6]===1){
+    const imagen_seven = document.createElement("img");
+    imagen_seven.classList.add("imageSvg");
+    imagen_seven.src = "./img_svg/08.svg";
+    imagen_seven.alt = "imagen 8";
+    spaceImageOne.appendChild(imagen_seven);
+
+  } if(winLevel[7]===1){
+    const imagen_nine = document.createElement("img");
+    imagen_nine.classList.add("imageSvg");
+    imagen_nine.src = "./img_svg/09.svg";
+    imagen_nine.alt = "imagen 9";
+    spaceImageOne.appendChild(imagen_nine);
+  }
+  callModifyModal_DeleteDummy();
+}
+
+function callModifyModal_DeleteDummy() {
+  if(winLevel[7]===1){
+    setTimeout(function() {
+      modifyModal();
+    }, 2500);
+    winLevel.length = 0;
+    setTimeout(function() {
+      deleteDummy();
+    }, 3500);
+  }
+}
+
+function deleteDummy() {
+    if(window.innerWidth >= 451 && spaceImageOne.classList.contains("spaceImage")){
+      spaceImageOne.innerHTML = '';
+      spaceImageOne.classList.remove("spaceImage");
+    }
+    if(window.innerWidth <= 450 && spaceImageTwo.classList.contains("spaceImage")){
+      spaceImageTwo.innerHTML = '';
+      spaceImageTwo.classList.remove("spaceImage");
+      modalContainer.classList.add("inactive");
+      modal.classList.remove("modifyModal");
+    }
+}
+
+function modifyModal(){
+  modalContainer.classList.remove("inactive");
+  modal.classList.add("modifyModal");
+  buttomClose.classList.add("buttomNextLevel");
+  modalText.classList.add("modifyText");
+  modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
+  createDummyFinalModal();
+  buttomClose.innerText = 'Siguiente Nivel';
+}
+
+function createDummyMediaQuery450(){
+  if(winLevel[0]===1){
+    spaceImageTwo.classList.add("spaceImage");
+    const imagen_one = document.createElement("img");
+    imagen_one.classList.add("imageSvg");
+    imagen_one.src = "./img_svg/01.svg";
+    imagen_one.alt = "imagen 1";
+    spaceImageTwo.appendChild(imagen_one);
+
+  } if(winLevel[1]===1){
+    const imagen_two = document.createElement("img");
+    imagen_two.classList.add("imageSvg");
+    imagen_two.src = "./img_svg/02.svg";
+    imagen_two.alt = "imagen 2";
+    spaceImageTwo.appendChild(imagen_two);
+
+  } if(winLevel[2]===1){
+    const imagen_three = document.createElement("img");
+    imagen_three.classList.add("imageSvg");
+    imagen_three.src = "./img_svg/03.svg";
+    imagen_three.alt = "imagen 3";
+    spaceImageTwo.appendChild(imagen_three);
+
+  } if(winLevel[3]===1){
+    const imagen_four = document.createElement("img");
+    imagen_four.classList.add("imageSvg");
+    imagen_four.src = "./img_svg/04.svg";
+    imagen_four.alt = "imagen 4";
+    spaceImageTwo.appendChild(imagen_four);
+
+  } if(winLevel[4]===1){
+    const imagen_five = document.createElement("img");
+    imagen_five.classList.add("imageSvg");
+    imagen_five.src = "./img_svg/05.svg";
+    imagen_five.alt = "imagen 5";
+    spaceImageTwo.appendChild(imagen_five);
+
+  } if(winLevel[5]===1){
+    const imagen_six = document.createElement("img");
+    imagen_six.classList.add("imageSvg");
+    imagen_six.src = "./img_svg/06.svg";
+    imagen_six.alt = "imagen 6";
+    spaceImageTwo.appendChild(imagen_six);
+
+  } if(winLevel[6]===1){
+    const imagen_seven = document.createElement("img");
+    imagen_seven.classList.add("imageSvg");
+    imagen_seven.src = "./img_svg/08.svg";
+    imagen_seven.alt = "imagen 8";
+    spaceImageTwo.appendChild(imagen_seven);
+
+  } if(winLevel[7]===1){
+    const imagen_nine = document.createElement("img");
+    imagen_nine.classList.add("imageSvg");
+    imagen_nine.src = "./img_svg/09.svg";
+    imagen_nine.alt = "imagen 9";
+    spaceImageTwo.appendChild(imagen_nine);
+  }
+}
+
+function createDummyFinalModal(){
+      headTree.classList.add("spaceImage");
+      const imagen_nine = document.createElement("img");
+      imagen_nine.classList.add("imageSvg");
+      imagen_nine.src = "./img_svg/09.svg";
+      imagen_nine.alt = "imagen 9";
+      headTree.appendChild(imagen_nine);
+}
+
+function deleteDummyFinalModal(){
+  headTree.innerHTML = '';
+  modalContainer.classList.add("inactive");
+  modal.classList.remove("modifyModal");
+  winLevel.length = 0; /* Esto elimina el valor en la posición 0, indica que el nivel fue superado, la idea sería sustituir este indicador por otro valor en vez de eliminarlo. para así poder gestionar los niveles. */
+}
+
+function showLevel(){
+  /* containerTextLevel.classList.add("containerTextLevel");
+  const textLevel = document.createElement("h1");
+  textLevel.classList.add("textLevel"); */
+  /* if(winLevel.length === 0){
+    textLevel.innerText = 'Nivel 1';
+  } */
+  if(userLevel[0] === 1){
+    textLevel.innerText = 'Nivel 2';
+
+  } if(userLevel[1] === 1){ 
+    textLevel.innerText = 'Nivel 3';
+
+  } if(userLevel[2] === 1){
+    textLevel.innerText = 'Nivel 4';
+
+  } if(userLevel[3] === 1){
+    textLevel.innerText = 'Nivel 5';
+
+  } if(userLevel[4] === 1){
+    textLevel.innerText = 'Nivel 6';
+  
+  } if(userLevel[5] === 1){
+    textLevel.innerText = 'Nivel 7';
+
+  } if(userLevel[6] === 1){
+    textLevel.innerText = 'Nivel 8';
+
+  } if(userLevel[7] === 1){
+    textLevel.innerText = 'Nivel 9';
+  }
+}
+
+/* Falta seccionar la creación del dummy para el primer nivel en mobile, y falta crear los demas niveles. */
+
+/* function createDummy() {
+  if(winLevel[0]===1){
+    spaceImageOne.classList.add("spaceImage");
+    const imagen_nine = document.createElement("img");
+    imagen_nine.classList.add("imageSvg");
+    imagen_nine.src = "./img_svg/09.svg";
+    imagen_nine.alt = "imagen 9";      
+    spaceImageOne.appendChild(imagen_nine);
+  }
+  callModifyModal_DeleteDummy();
+} */
+
+/* function createDummy() {
+  if(winLevel[0]===1){
+    spaceImageOne.classList.add("spaceImage");
   } if(winLevel[1]===1){
     const earsRight = document.createElement("div");
     earsRight.classList.add("ears");
@@ -487,262 +709,6 @@ function createDummy() {
     mouth.appendChild(teeth);
     mouth.appendChild(tongue);
     headOne.appendChild(mouth);
-
-    setTimeout(function() {
-      modifyModal();
-    }, 2000);
-    winLevel.length = 0;
-    setTimeout(function() {
-      deleteDummy();
-    }, 2000);
   }
-}
-
-function deleteDummy() {
-    if(window.innerWidth >= 451 && headOne.classList.contains("head")){
-      headOne.innerHTML = '';
-      spaceImageOne.classList.remove("spaceImage");
-      headOne.classList.remove("head");
-    }
-    if(window.innerWidth <= 450 && headTwo.classList.contains("head")){
-      headTwo.innerHTML = '';
-      spaceImageTwo.classList.remove("spaceImage");
-      headTwo.classList.remove("head");
-      headTwo.classList.remove("modifyImage");
-      modalContainer.classList.add("inactive");
-      modal.classList.remove("modifyModal");
-    }
-}
-
-function modifyModal(){
-  userLevel.push(1);
-  modalContainer.classList.remove("inactive");
-  modal.classList.add("modifyModal");
-  buttomClose.classList.add("buttomNextLevel");
-  modalText.classList.add("modifyText");
-  modalText.innerText = "Descubriste a Polo, haz logrado este nivel.";
-  createDummyFinalModal();
-  buttomClose.innerText = 'Siguiente Nivel';
-}
-
-function createDummyMediaQuery450(){
-    if(winLevel[0] === 1){
-      modalContainer.classList.remove("inactive");
-      modal.classList.add("modifyModal");
-    
-      spaceImageTwo.classList.add("spaceImage");
-      headTwo.classList.add("head");
-      headTwo.classList.add("modifyImage");
-
-    } if(winLevel[1] === 1){ 
-      const earsRight = document.createElement("div");
-      earsRight.classList.add("ears");
-      earsRight.classList.add("earsRight");
-  
-      const earsLeft = document.createElement("div");
-      earsLeft.classList.add("ears");
-      earsLeft.classList.add("earsLeft");
-
-      headTwo.appendChild(earsRight);
-      headTwo.appendChild(earsLeft);
-
-    } if(winLevel[2] === 1){
-      const neck = document.createElement("div");
-      neck.classList.add("neck");
-  
-      headTwo.appendChild(neck);
-
-    } if(winLevel[3] === 1){
-      const eyeLeft = document.createElement("div");
-      eyeLeft.classList.add("eye");
-      eyeLeft.classList.add("eye-left");
-      const eyeRight = document.createElement("div");
-      eyeRight.classList.add("eye");
-      eyeRight.classList.add("eye-right");
-      const eyePupil = document.createElement("div");
-      eyePupil.classList.add("eyePupil");
-      const eyePupilTwo = document.createElement("div");
-      eyePupilTwo.classList.add("eyePupil");
-      eyePupilTwo.classList.add("eyePupiltwo");
-      eyeLeft.appendChild(eyePupil);
-      eyeRight.appendChild(eyePupilTwo);
-      headTwo.appendChild(eyeLeft);
-      headTwo.appendChild(eyeRight);
-
-    } if(winLevel[4] === 1){
-      const front = document.createElement("div");
-      front.classList.add("front");
-      headTwo.appendChild(front);
-    
-    } if(winLevel[5] === 1){
-      const bottom = document.createElement("div");
-      bottom.classList.add("bottom");
-      headTwo.appendChild(bottom);
-
-    } if(winLevel[6] === 1){
-      const nose = document.createElement("div");
-      nose.classList.add("nose");
-      headTwo.appendChild(nose);
-
-    } if(winLevel[7] === 1){
-      const mouth = document.createElement("div");
-      mouth.classList.add("mouth");
-      const teeth = document.createElement("div");
-      teeth.classList.add("teeth");
-      const tongue = document.createElement("div");
-      tongue.classList.add("tongue");
-      mouth.appendChild(teeth);
-      mouth.appendChild(tongue);
-      headTwo.appendChild(mouth);
-    }
-}
-
-function createDummyFinalModal(){
-      headTree.classList.add("head");
-      headTree.classList.add("modifyImage");
-      
-      const earsRight = document.createElement("div");
-      earsRight.classList.add("ears");
-      earsRight.classList.add("earsRight");
-  
-      const earsLeft = document.createElement("div");
-      earsLeft.classList.add("ears");
-      earsLeft.classList.add("earsLeft");
-  
-      const neck = document.createElement("div");
-      neck.classList.add("neck");
-  
-      headTree.appendChild(earsRight);
-      headTree.appendChild(earsLeft);
-      headTree.appendChild(neck);
-  
-      const eyeLeft = document.createElement("div");
-      eyeLeft.classList.add("eye");
-      eyeLeft.classList.add("eye-left");
-  
-      const eyeRight = document.createElement("div");
-      eyeRight.classList.add("eye");
-      eyeRight.classList.add("eye-right");
-  
-      const eyePupil = document.createElement("div");
-      eyePupil.classList.add("eyePupil");
-      const eyePupilTwo = document.createElement("div");
-      eyePupilTwo.classList.add("eyePupil");
-      eyePupilTwo.classList.add("eyePupiltwo");
-  
-      eyeLeft.appendChild(eyePupil);
-      eyeRight.appendChild(eyePupilTwo);
-  
-      const front = document.createElement("div");
-      front.classList.add("front");
-  
-      headTree.appendChild(eyeLeft);
-      headTree.appendChild(eyeRight);
-      headTree.appendChild(front);
-
-      const bottom = document.createElement("div");
-      bottom.classList.add("bottom");
-  
-      const nose = document.createElement("div");
-      nose.classList.add("nose");
-  
-      const mouth = document.createElement("div");
-      mouth.classList.add("mouth");
-  
-      const teeth = document.createElement("div");
-      teeth.classList.add("teeth");
-  
-      const tongue = document.createElement("div");
-      tongue.classList.add("tongue");
-  
-      mouth.appendChild(teeth);
-      mouth.appendChild(tongue);
-  
-      headTree.appendChild(bottom);
-      headTree.appendChild(nose);
-      headTree.appendChild(mouth);
-}
-
-function deleteDummyFinalModal(){
-  headTree.innerHTML = '';
-  headTree.classList.remove("head");
-  headTree.classList.remove("modifyImage");
-  modalContainer.classList.add("inactive");
-  modal.classList.remove("modifyModal");
-  winLevel.length = 0; /* Esto elimina el valor en la posición 0, indica que el nivel fue superado, la idea sería sustituir este indicador por otro valor en vez de eliminarlo. para así poder gestionar los niveles. */
-}
-
-/* Falta seccionar la creación del dummy para el primer nivel en mobile, y falta crear los demas niveles. */
-
-/* function createDummy() {
-  if(winLevel[0]===1){
-    spaceImageOne.classList.add("spaceImage");
-    headOne.classList.add("head");
-    const earsRight = document.createElement("div");
-    earsRight.classList.add("ears");
-    earsRight.classList.add("earsRight");
-
-    const earsLeft = document.createElement("div");
-    earsLeft.classList.add("ears");
-    earsLeft.classList.add("earsLeft");
-
-    const neck = document.createElement("div");
-    neck.classList.add("neck");
-
-    headOne.appendChild(earsRight);
-    headOne.appendChild(earsLeft);
-    headOne.appendChild(neck);
-
-    const eyeLeft = document.createElement("div");
-    eyeLeft.classList.add("eye");
-    eyeLeft.classList.add("eye-left");
-
-    const eyeRight = document.createElement("div");
-    eyeRight.classList.add("eye");
-    eyeRight.classList.add("eye-right");
-
-    const eyePupil = document.createElement("div");
-    eyePupil.classList.add("eyePupil");
-    const eyePupilTwo = document.createElement("div");
-    eyePupilTwo.classList.add("eyePupil");
-    eyePupilTwo.classList.add("eyePupiltwo");
-
-    eyeLeft.appendChild(eyePupil);
-    eyeRight.appendChild(eyePupilTwo);
-
-    const front = document.createElement("div");
-    front.classList.add("front");
-
-    headOne.appendChild(eyeLeft);
-    headOne.appendChild(eyeRight);
-    headOne.appendChild(front);
-    const bottom = document.createElement("div");
-    bottom.classList.add("bottom");
-
-    const nose = document.createElement("div");
-    nose.classList.add("nose");
-
-    const mouth = document.createElement("div");
-    mouth.classList.add("mouth");
-
-    const teeth = document.createElement("div");
-    teeth.classList.add("teeth");
-
-    const tongue = document.createElement("div");
-    tongue.classList.add("tongue");
-
-    mouth.appendChild(teeth);
-    mouth.appendChild(tongue);
-
-    headOne.appendChild(bottom);
-    headOne.appendChild(nose);
-    headOne.appendChild(mouth);
-    setTimeout(function() {
-      modifyModal();
-    }, 2000);
-    winLevel.length = 0;
-    setTimeout(function() {
-      deleteDummy();
-    }, 2000);
-  }
+  callModifyModal_DeleteDummy();
 } */

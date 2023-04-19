@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="7.5932322cm"
+   height="4.2119389cm"
+   viewBox="0 0 75.932322 42.119389"
+   version="1.1"
+   id="svg5"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <color-profile
+       name="Adobe-RGB--1998-"
+       xlink:href="file:///System/Library/ColorSync/Profiles/AdobeRGB1998.icc"
+       id="color-profile4175" />
+    <color-profile
+       name="ACES-CG-Linear--Academy-Color-Encoding-System-AP1-"
+       xlink:href="file:///System/Library/ColorSync/Profiles/ACESCG%20Linear.icc"
+       id="color-profile4177" />
+    <linearGradient
+       id="linearGradient5400">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5396" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5398" />
+    </linearGradient>
+    <radialGradient
+       xlink:href="#linearGradient5400"
+       id="radialGradient5402"
+       cx="98.750267"
+       cy="93.412415"
+       fx="98.750267"
+       fy="93.412415"
+       r="9.5540295"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.65081146,0,0,0.65081146,31.146304,24.611767)" />
+    <radialGradient
+       xlink:href="#linearGradient5400"
+       id="radialGradient5402-3"
+       cx="98.750267"
+       cy="93.412415"
+       fx="98.750267"
+       fy="93.412415"
+       r="9.5540295"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.65081146,0,0,0.65081146,69.178499,24.611761)" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-71.89432,-67.390202)">
+    <g
+       id="g6193"
+       style="display:inline">
+      <path
+         id="path1917"
+         style="fill:#ffffff;fill-opacity:0.988235;stroke-width:0.189208"
+         d="m 77.389075,73.51382 a 20.569256,20.569256 0 0 0 -5.315438,13.770736 20.569256,20.569256 0 0 0 20.569287,20.569284 20.569256,20.569256 0 0 0 15.259016,-6.78873 22.492397,22.492397 0 0 0 17.43201,8.29097 22.492397,22.492397 0 0 0 22.49269,-22.492687 22.492397,22.492397 0 0 0 -4.41059,-13.349573 z" />
+      <path
+         id="path4583"
+         style="fill:#dddddd;fill-opacity:1;stroke-width:0.241379"
+         d="M 92.411414,67.390202 A 20.517368,20.267157 0 0 0 71.89432,87.657699 20.517368,20.267157 0 0 0 92.411414,107.92468 20.517368,20.267157 0 0 0 112.88355,88.859176 18.265461,17.848442 0 0 1 94.830387,104.0045 18.265461,17.848442 0 0 1 76.564836,86.156498 18.265461,17.848442 0 0 1 94.830387,68.307975 a 18.265461,17.848442 0 0 1 7.170623,1.433504 20.517368,20.267157 0 0 0 -9.589596,-2.351277 z" />
+      <path
+         id="path4583-0"
+         style="fill:#dddddd;fill-opacity:1;stroke-width:0.246241"
+         d="m 126.13029,68.975118 a 21.352333,20.267157 0 0 0 -1.52498,0.05374 v 1.283126 a 19.008784,17.848442 0 0 1 4.04213,-0.419096 19.008784,17.848442 0 0 1 7.4626,1.433505 21.352333,20.267157 0 0 0 -9.97975,-2.351278 z m 21.30516,21.468974 a 19.008784,17.848442 0 0 1 -18.78801,15.145328 19.008784,17.848442 0 0 1 -14.94327,-6.839375 h -6.41356 a 21.352333,20.267157 0 0 0 18.83968,10.759545 21.352333,20.267157 0 0 0 21.30516,-19.065498 z" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="path3413"
+         cx="91.176109"
+         cy="89.052994"
+         r="9.5540295" />
+      <circle
+         style="fill:url(#radialGradient5402);fill-opacity:1;stroke-width:0.172194"
+         id="path3413-1"
+         cx="95.414108"
+         cy="85.40564"
+         r="6.2178717" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="path3413-0"
+         cx="127.62297"
+         cy="89.406845"
+         r="9.5540295" />
+      <circle
+         style="fill:url(#radialGradient5402-3);fill-opacity:1;stroke-width:0.172194"
+         id="path3413-1-3"
+         cx="133.4463"
+         cy="85.405632"
+         r="6.2178717" />
+    </g>
+  </g>
+</svg>

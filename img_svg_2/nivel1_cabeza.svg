@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="8.9180813cm"
+   height="16.399113cm"
+   viewBox="0 0 89.180813 163.99113"
+   version="1.1"
+   id="svg5"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <color-profile
+       name="Adobe-RGB--1998-"
+       xlink:href="file:///System/Library/ColorSync/Profiles/AdobeRGB1998.icc"
+       id="color-profile3543" />
+    <color-profile
+       name="ACES-CG-Linear--Academy-Color-Encoding-System-AP1-"
+       xlink:href="file:///System/Library/ColorSync/Profiles/ACESCG%20Linear.icc"
+       id="color-profile3545" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-64.986061,-25.558523)">
+    <g
+       id="g6137"
+       style="display:inline">
+      <path
+         id="path1514"
+         style="fill:#ffccaa;fill-opacity:0.988235;stroke-width:0.535838"
+         d="M 109.72547,25.558523 A 44.387605,37.210988 0 0 0 65.341189,62.703282 h -0.0035 v 0.06613 90.480678 h 0.08357 a 44.38761,37.210988 0 0 0 44.345351,36.26513 44.38761,37.210988 0 0 0 44.34536,-36.26513 h 0.0549 V 62.703282 h -0.0549 a 44.387605,37.210988 0 0 0 -44.3865,-37.144759 z" />
+      <path
+         id="path1514-8"
+         style="fill:#edb48f;fill-opacity:0.940171;stroke-width:0.535838"
+         d="m 109.37434,25.592948 c -24.482478,0.0015 -44.340705,16.620654 -44.384279,37.144759 h -0.004 v 0.06613 90.480683 h 0.0836 c 0.611679,20.167 20.281114,36.25244 44.345349,36.26513 -5.03817,-10.97047 -5.99691,-41.01909 -25.410761,-55.04785 -22.807922,-16.48137 -8.98526,-32.1045 0.89461,-31.41885 C 102.5911,104.31078 84.127084,73.97028 89.273654,68.804515 76.355546,65.256754 75.698431,55.589746 77.564038,49.763099 80.237906,41.412101 84.553992,34.322016 109.37434,25.592948 Z" />
+      <path
+         style="fill:#eeb590;fill-opacity:1;stroke-width:0.264583"
+         d="m 97.42751,102.4994 9.31813,1.17951 -8.610423,23.1184 c 0,0 -11.205344,3.19306 -11.205344,2.35902 10e-7,-18.04651 10.497637,-26.65693 10.497637,-26.65693 z"
+         id="path5494" />
+    </g>
+  </g>
+</svg>

@@ -4,7 +4,7 @@
   --tostao: #F5AB67;
   --pink-soul: #EB78B3;
   --purple: #9000D6;
-  --laila: #CDD0F8;
+  --laila: #d7d9ff;
   --soft-arena:#F4EFD3;
   --hight-blue: #48ADE0;
   --gray-blue: #6C8794;
@@ -52,6 +52,7 @@ body{
   display: flex;
   flex-direction: row;
   background-color: var(--laila);
+  box-shadow: 0 10px 15px  #43346B;
   z-index: 2;
 }
 main {
@@ -61,7 +62,23 @@ main {
   width: 100%;
   height: 80%;
   position: relative;
-  background-color: var(--soft-arena);
+  background-image: linear-gradient(to top, #f4efd3, #f8e1c2, #fed2b8, #ffc2b5, #ffb3bb, #ffb3bb, #ffb3bb, #ffb3bb, #ffc2b5, #fed2b8, #f8e1c2, #f4efd3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.containerTextLevel{
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.textLevel{
+  font-size: 30px;
+  color: var(--pink-soul);
 }
 .container {
   width: 100%;
@@ -111,119 +128,14 @@ main {
   align-items:center;
   position:relative;
 }
-/* Dummy */
-.ears{
-  width:30px;
-  height:30px;
-  background: var(--skin);
-  border-radius:50%;
+.imageSvg{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   position:absolute;
-  /* z-index: 1; */
 }
-.earsLeft{
-  top: 60px;
-  right: -20px;
-}
-.earsRight{
-  top: 60px;
-  left: -20px;
-}
-.neck{
-  width:50px;
-  height:100px;
-  background: var(--skin);
-  position:absolute;
- /*  z-index: 6; */
-  top: 120px;
-  left: 25px;
-}
-
-.head {
-  width:100px;
-  height:170px;
-  background: var(--skin);
-  border-radius:50px;
-  position:relative;
-  /* z-index: 5; */
-}
-.front{
-  width:75px;
-  height:20px;
-  background: var(--skin);
-  border-radius:50px;
-  position:absolute;
-  top:33px;
-  left:12px;
-}
-.eye {
-  width:30px;
-  height:30px;
-  background: var(--white);
-  border-radius:50%;
-  position:absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.eye-left {
-  top:45px;
-  left:23px;
-}
-.eye-right {
-  top:45px;
-  right:23px;
-}
-.eyePupil {
-  width:10px;
-  height:10px;
-  background-color: black;
-  border-radius: 100%;
-}
-.bottom{
-  width:100px;
-  height:110px;
-  background: var(--black);
-  border-top-right-radius:35px;
-  border-top-left-radius:35px;
-  border-bottom-right-radius:50px;
-  border-bottom-left-radius:50px;
-  position:absolute;
-  top:85px;
-}
-.nose{
-  width:30px;
-  height:30px;
-  background: var(--skin);
-  position:absolute;
-  border-radius:50%;
-  top:75px;
-  left:35px;
-}
-.mouth{
-  width:50px;
-  height:25px;
-  background: var(--dark-red);
-  position:absolute;
-  overflow: hidden;
-  top:110px;
-  left:25px;
-  border-radius: 0px 0px 100px 100px;
-}
-.teeth{
-  width: 40px;
-  height: 8px;
-  background: white;
-  border-bottom-right-radius:5px;
-}
-.tongue{
-  width: 28px;
-  height: 20px;
-  position:absolute;
-  top:12px;
-  background: var(--red);
-  border-top-right-radius:5px;
-}
-/* dummy end*/
 
 .buttom {
   width: 100px;
@@ -293,6 +205,7 @@ footer{
   display: flex;
   flex-direction: row;
   background-color: var(--laila);
+  box-shadow: 0 -10px 15px #43346B;
   z-index: 3;
 }
 .inactive {
@@ -301,9 +214,6 @@ footer{
 .modifyModal {
   width: 600px;
   height: 600px;
-}
-.modifyImage{
-  margin-bottom: 50px;
 }
 .modifyText{
   font-size: 45px;
@@ -389,7 +299,7 @@ footer{
   }
   .modifyModal {
     width: 300px;
-    height: 500px;
+    height: 550px;
     padding: 35px 20px;
   }
   .modifyText{
