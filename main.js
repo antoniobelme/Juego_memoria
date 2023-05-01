@@ -424,62 +424,137 @@ function removeAnimateModalContainer() {
 
 /* Funciones de creación de dummys */
 function createDummy() {
-  if(winLevel[0]===1){
-    spaceImageOne.classList.add("spaceImage");
-    const imagen_one = document.createElement("img");
-    imagen_one.classList.add("imageSvg");
-    imagen_one.src = "./img_svg/01.svg";
-    imagen_one.alt = "imagen 1";
-    spaceImageOne.appendChild(imagen_one);
+  if(userLevel.length === 0){
+    if(winLevel[0]===1){
+      spaceImageOne.classList.add("spaceImage");
+      const imagen_one = document.createElement("img");
+      imagen_one.classList.add("imageSvg");
+      imagen_one.src = "./Image/img_nivel1/01.svg";
+      imagen_one.alt = "imagen 1";
+      spaceImageOne.appendChild(imagen_one);
+  
+    } if(winLevel[1]===1){
+      const imagen_two = document.createElement("img");
+      imagen_two.classList.add("imageSvg");
+      imagen_two.src = "./Image/img_nivel1/02.svg";
+      imagen_two.alt = "imagen 2";
+      spaceImageOne.appendChild(imagen_two);
+  
+    } if(winLevel[2]===1){
+      const imagen_three = document.createElement("img");
+      imagen_three.classList.add("imageSvg");
+      imagen_three.src = "./Image/img_nivel1/03.svg";
+      imagen_three.alt = "imagen 3";
+      spaceImageOne.appendChild(imagen_three);
+  
+    } if(winLevel[3]===1){
+      const imagen_four = document.createElement("img");
+      imagen_four.classList.add("imageSvg");
+      imagen_four.src = "./Image/img_nivel1/04.svg";
+      imagen_four.alt = "imagen 4";
+      spaceImageOne.appendChild(imagen_four);
+  
+    } if(winLevel[4]===1){
+      const imagen_five = document.createElement("img");
+      imagen_five.classList.add("imageSvg");
+      imagen_five.src = "./Image/img_nivel1/05.svg";
+      imagen_five.alt = "imagen 5";
+      spaceImageOne.appendChild(imagen_five);
+  
+    } if(winLevel[5]===1){
+      const imagen_six = document.createElement("img");
+      imagen_six.classList.add("imageSvg");
+      imagen_six.src = "./Image/img_nivel1/06.svg";
+      imagen_six.alt = "imagen 6";
+      spaceImageOne.appendChild(imagen_six);
+  
+    } if(winLevel[6]===1){
+      const imagen_seven = document.createElement("img");
+      imagen_seven.classList.add("imageSvg");
+      imagen_seven.src = "./Image/img_nivel1/08.svg";
+      imagen_seven.alt = "imagen 8";
+      spaceImageOne.appendChild(imagen_seven);
+  
+    } if(winLevel[7]===1){
+      const imagen_nine = document.createElement("img");
+      imagen_nine.classList.add("imageSvg");
+      imagen_nine.src = "./Image/img_nivel1/09.svg";
+      imagen_nine.alt = "imagen 9";
+      spaceImageOne.appendChild(imagen_nine);
+    }
 
-  } if(winLevel[1]===1){
-    const imagen_two = document.createElement("img");
-    imagen_two.classList.add("imageSvg");
-    imagen_two.src = "./img_svg/02.svg";
-    imagen_two.alt = "imagen 2";
-    spaceImageOne.appendChild(imagen_two);
+  } 
+  if(userLevel[0] === 1){
+    if(winLevel[0]===1){
+      spaceImageOne.classList.add("spaceImage");
+      const imagen_one = document.createElement("img");
+      imagen_one.classList.add("imageSvg");
+      imagen_one.src = "./Image/img_nivel2/01.svg";
+      imagen_one.alt = "imagen 1";
+      spaceImageOne.appendChild(imagen_one);
+  
+    } if(winLevel[1]===1){
+      const imagen_two = document.createElement("img");
+      imagen_two.classList.add("imageSvg");
+      imagen_two.src = "./Image/img_nivel2/02.svg";
+      imagen_two.alt = "imagen 2";
+      spaceImageOne.appendChild(imagen_two);
+  
+    } if(winLevel[2]===1){
+      const imagen_three = document.createElement("img");
+      imagen_three.classList.add("imageSvg");
+      imagen_three.src = "./Image/img_nivel2/03.svg";
+      imagen_three.alt = "imagen 3";
+      spaceImageOne.appendChild(imagen_three);
+  
+    } if(winLevel[3]===1){
+      const imagen_four = document.createElement("img");
+      imagen_four.classList.add("imageSvg");
+      imagen_four.src = "./Image/img_nivel2/04.svg";
+      imagen_four.alt = "imagen 4";
+      spaceImageOne.appendChild(imagen_four);
+  
+    } if(winLevel[4]===1){
+      const imagen_five = document.createElement("img");
+      imagen_five.classList.add("imageSvg");
+      imagen_five.src = "./Image/img_nivel2/05.svg";
+      imagen_five.alt = "imagen 5";
+      spaceImageOne.appendChild(imagen_five);
+  
+    } if(winLevel[5]===1){
+      const imagen_six = document.createElement("img");
+      imagen_six.classList.add("imageSvg");
+      imagen_six.src = "./Image/img_nivel2/06.svg";
+      imagen_six.alt = "imagen 6";
+      spaceImageOne.appendChild(imagen_six);
+  
+    } if(winLevel[6]===1){
+      const imagen_seven = document.createElement("img");
+      imagen_seven.classList.add("imageSvg");
+      imagen_seven.src = "./Image/img_nivel2/07.svg";
+      imagen_seven.alt = "imagen 8";
+      spaceImageOne.appendChild(imagen_seven);
+  
+    } if(winLevel[7]===1){
+      const imagen_nine = document.createElement("img");
+      imagen_nine.classList.add("imageSvg");
+      imagen_nine.src = "./Image/img_nivel2/08.svg";
+      imagen_nine.alt = "imagen 9";
+      spaceImageOne.appendChild(imagen_nine);
+    }
+  } if(userLevel[1] === 1){ 
 
-  } if(winLevel[2]===1){
-    const imagen_three = document.createElement("img");
-    imagen_three.classList.add("imageSvg");
-    imagen_three.src = "./img_svg/03.svg";
-    imagen_three.alt = "imagen 3";
-    spaceImageOne.appendChild(imagen_three);
+  } if(userLevel[2] === 1){
 
-  } if(winLevel[3]===1){
-    const imagen_four = document.createElement("img");
-    imagen_four.classList.add("imageSvg");
-    imagen_four.src = "./img_svg/04.svg";
-    imagen_four.alt = "imagen 4";
-    spaceImageOne.appendChild(imagen_four);
+  } if(userLevel[3] === 1){
 
-  } if(winLevel[4]===1){
-    const imagen_five = document.createElement("img");
-    imagen_five.classList.add("imageSvg");
-    imagen_five.src = "./img_svg/05.svg";
-    imagen_five.alt = "imagen 5";
-    spaceImageOne.appendChild(imagen_five);
+  } if(userLevel[4] === 1){
+  
+  } if(userLevel[5] === 1){
 
-  } if(winLevel[5]===1){
-    const imagen_six = document.createElement("img");
-    imagen_six.classList.add("imageSvg");
-    imagen_six.src = "./img_svg/06.svg";
-    imagen_six.alt = "imagen 6";
-    spaceImageOne.appendChild(imagen_six);
+  } if(userLevel[6] === 1){
 
-  } if(winLevel[6]===1){
-    const imagen_seven = document.createElement("img");
-    imagen_seven.classList.add("imageSvg");
-    imagen_seven.src = "./img_svg/08.svg";
-    imagen_seven.alt = "imagen 8";
-    spaceImageOne.appendChild(imagen_seven);
-
-  } if(winLevel[7]===1){
-    const imagen_nine = document.createElement("img");
-    imagen_nine.classList.add("imageSvg");
-    imagen_nine.src = "./img_svg/09.svg";
-    imagen_nine.alt = "imagen 9";
-    spaceImageOne.appendChild(imagen_nine);
+  } if(userLevel[7] === 1){
   }
   callModifyModal_DeleteDummy();
 }
@@ -524,56 +599,56 @@ function createDummyMediaQuery450(){
     spaceImageTwo.classList.add("spaceImage");
     const imagen_one = document.createElement("img");
     imagen_one.classList.add("imageSvg");
-    imagen_one.src = "./img_svg/01.svg";
+    imagen_one.src = "./Image/img_nivel1/01.svg";
     imagen_one.alt = "imagen 1";
     spaceImageTwo.appendChild(imagen_one);
 
   } if(winLevel[1]===1){
     const imagen_two = document.createElement("img");
     imagen_two.classList.add("imageSvg");
-    imagen_two.src = "./img_svg/02.svg";
+    imagen_two.src = "./Image/img_nivel1/02.svg";
     imagen_two.alt = "imagen 2";
     spaceImageTwo.appendChild(imagen_two);
 
   } if(winLevel[2]===1){
     const imagen_three = document.createElement("img");
     imagen_three.classList.add("imageSvg");
-    imagen_three.src = "./img_svg/03.svg";
+    imagen_three.src = "./Image/img_nivel1/03.svg";
     imagen_three.alt = "imagen 3";
     spaceImageTwo.appendChild(imagen_three);
 
   } if(winLevel[3]===1){
     const imagen_four = document.createElement("img");
     imagen_four.classList.add("imageSvg");
-    imagen_four.src = "./img_svg/04.svg";
+    imagen_four.src = "./Image/img_nivel1/04.svg";
     imagen_four.alt = "imagen 4";
     spaceImageTwo.appendChild(imagen_four);
 
   } if(winLevel[4]===1){
     const imagen_five = document.createElement("img");
     imagen_five.classList.add("imageSvg");
-    imagen_five.src = "./img_svg/05.svg";
+    imagen_five.src = "./Image/img_nivel1/05.svg";
     imagen_five.alt = "imagen 5";
     spaceImageTwo.appendChild(imagen_five);
 
   } if(winLevel[5]===1){
     const imagen_six = document.createElement("img");
     imagen_six.classList.add("imageSvg");
-    imagen_six.src = "./img_svg/06.svg";
+    imagen_six.src = "./Image/img_nivel1/06.svg";
     imagen_six.alt = "imagen 6";
     spaceImageTwo.appendChild(imagen_six);
 
   } if(winLevel[6]===1){
     const imagen_seven = document.createElement("img");
     imagen_seven.classList.add("imageSvg");
-    imagen_seven.src = "./img_svg/08.svg";
+    imagen_seven.src = "./Image/img_nivel1/08.svg";
     imagen_seven.alt = "imagen 8";
     spaceImageTwo.appendChild(imagen_seven);
 
   } if(winLevel[7]===1){
     const imagen_nine = document.createElement("img");
     imagen_nine.classList.add("imageSvg");
-    imagen_nine.src = "./img_svg/09.svg";
+    imagen_nine.src = "./Image/img_nivel1/09.svg";
     imagen_nine.alt = "imagen 9";
     spaceImageTwo.appendChild(imagen_nine);
   }
@@ -583,7 +658,7 @@ function createDummyFinalModal(){
       headTree.classList.add("spaceImage");
       const imagen_nine = document.createElement("img");
       imagen_nine.classList.add("imageSvg");
-      imagen_nine.src = "./img_svg/09.svg";
+      imagen_nine.src = "./Image/img_nivel1/09.svg";
       imagen_nine.alt = "imagen 9";
       headTree.appendChild(imagen_nine);
 }
